@@ -362,6 +362,21 @@ function wireContactForm() {
   });
 }
 
+function initFloatingSocials() {
+  const social = document.querySelector('.floating-social');
+  const close = document.querySelector('.float-close');
+  if (!social || !close) return;
+  close.addEventListener('click', () => {
+    social.classList.add('is-closing');
+    const hideSocials = () => {
+      social.classList.add('is-closed');
+      social.classList.remove('is-closing');
+    };
+    social.addEventListener('animationend', hideSocials, { once: true });
+    setTimeout(hideSocials, 700);
+  });
+}
+
 function initCursor() {
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
@@ -433,6 +448,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initLogoFallback();
   wireSharedEvents();
   wireContactForm();
+  initFloatingSocials();
   wireCart();
   updateCalc();
   renderCart();

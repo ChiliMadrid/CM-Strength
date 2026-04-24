@@ -326,6 +326,7 @@ p { color: var(--text-muted); line-height: 1.85; }
 .blog-img-supplements { background: linear-gradient(135deg,#001a1a,#0e0e0e); }
 .blog-img-competing { background: linear-gradient(135deg,#1a001a,#0e0e0e); }
 .blog-img-training { background: linear-gradient(135deg,#0e1200,#0e0e0e); }
+.blog-img-sleep { background: linear-gradient(135deg,#1a1200,#090909 48%,#111827); font-size: 5rem; }
 .text-white { color: var(--white); }
 
 /* ─── Dividers ─── */
@@ -952,6 +953,9 @@ p { color: var(--text-muted); line-height: 1.85; }
   background: var(--surface); cursor: pointer;
   transition: all 0.4s; overflow: hidden;
   border: 1px solid transparent;
+  color: inherit;
+  text-decoration: none;
+  display: block;
 }
 .blog-card:hover { border-color: var(--gold-dim); background: var(--surface2); }
 .blog-card-img {
@@ -999,6 +1003,19 @@ p { color: var(--text-muted); line-height: 1.85; }
   font-size: 1.8rem !important; margin-bottom: 14px;
 }
 .blog-featured p { max-width: 420px; }
+.blog-article-hero { padding: 140px 5vw 60px; background: radial-gradient(ellipse 60% 40% at 0% 50%, rgba(201,168,76,0.08), transparent 62%); }
+.blog-article-shell { width:min(880px, 90vw); margin:0 auto; }
+.blog-back-link { display:inline-flex; margin-bottom:28px; color:var(--gold); text-decoration:none; font-family:var(--font-display); letter-spacing:0.08em; text-transform:uppercase; }
+.blog-article-meta { display:flex; flex-wrap:wrap; gap:12px; color:var(--text-dim); font-size:0.78rem; margin:18px 0 0; letter-spacing:0.08em; text-transform:uppercase; }
+.blog-article { padding-top:50px; }
+.blog-article p { font-size:1rem; line-height:1.95; margin-bottom:24px; color:var(--text); }
+.blog-article h2 { font-family:var(--font-display); color:var(--white); font-size:2rem; letter-spacing:0.05em; margin:50px 0 16px; }
+.blog-article .article-note { color:var(--text-muted); font-size:0.88rem; border-left:2px solid var(--gold); padding-left:18px; }
+.reel-script { background:var(--surface); border:1px solid var(--border); padding:28px; margin-top:26px; }
+.reel-script p { margin-bottom:14px; }
+.study-list { padding-left:20px; color:var(--text-muted); line-height:1.8; }
+.study-list li { margin-bottom:10px; }
+.study-list a { color:var(--gold); }
 
 /* ─── ═══════════ FOOTER ═══════════ ─── */
 footer {
@@ -1098,7 +1115,7 @@ footer {
 
 @media (max-width: 768px) {
   body { cursor: auto; }
-  .cursor, .cursor-ring { display: none; }
+  .cursor, .cursor-ring, .cursor-trail { display: none; }
   nav { padding: 0 20px; height: 60px; }
   .logo-mark { width: 132px; height: 42px; }
   .nav-links, .btn-nav { display: none; }
@@ -1166,12 +1183,24 @@ footer {
 /* --- Cart + floating contact actions --- */
 .nav-cart-link { display:inline-flex; align-items:center; gap:6px; }
 .cart-count { min-width:18px; height:18px; border-radius:999px; display:inline-grid; place-items:center; background:var(--gold); color:var(--black); font-size:0.68rem; line-height:1; padding:0 5px; }
-.floating-social { position:fixed; right:24px; bottom:24px; z-index:1001; display:flex; flex-direction:column; gap:10px; }
-.float-link { width:46px; height:46px; border-radius:50%; display:grid; place-items:center; color:var(--black); text-decoration:none; font-family:var(--font-display); letter-spacing:0.08em; box-shadow:0 12px 34px rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.12); transition:transform 0.25s ease, filter 0.25s ease; }
+.floating-social { position:fixed; right:24px; bottom:24px; z-index:1001; display:flex; flex-direction:column; gap:10px; align-items:center; }
+.floating-social.is-closing { animation: socialDescend 0.48s ease-in forwards; }
+.floating-social.is-closing .float-close,
+.floating-social.is-closing .float-link { pointer-events:none; }
+.floating-social.is-closed { display:none; }
+.float-close { width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:rgba(7,7,7,0.9); color:var(--gold); border:1px solid var(--gold-dim); cursor:pointer; box-shadow:0 12px 34px rgba(0,0,0,0.35); font-size:1.1rem; line-height:1; }
+.float-link { width:46px; height:46px; border-radius:50%; display:grid; place-items:center; color:var(--black); text-decoration:none; box-shadow:0 12px 34px rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.12); transition:transform 0.25s ease, filter 0.25s ease; }
 .float-link:hover { transform:translateY(-3px); filter:brightness(1.08); }
 .float-ig { color:var(--white); background:linear-gradient(35deg,#f58529,#dd2a7b,#8134af); }
 .float-wa { background:#25d366; }
 .float-kt { background:#ffe812; }
+.float-icon { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.float-wa .float-icon { width:25px; height:25px; fill:none; color:var(--white); }
+.float-kt .float-icon { width:30px; height:30px; fill:#371d1e; stroke:none; }
+.float-kt text { fill:#ffe812; font-family:Arial, sans-serif; font-size:4.4px; font-weight:700; letter-spacing:-0.2px; }
+@keyframes socialDescend {
+  to { opacity:0; transform:translateY(130vh) rotate(18deg); }
+}
 .cart-page-card { max-width:900px; margin:40px auto 0; padding:32px; background:var(--surface); border:1px solid var(--border); }
 .cart-items { list-style:none; display:grid; gap:14px; margin:0; padding:0; }
 .cart-items li { display:flex; justify-content:space-between; gap:20px; align-items:center; padding:16px 0; border-bottom:1px solid var(--border); }
@@ -1180,7 +1209,7 @@ footer {
 .cart-remove { width:30px; height:30px; border-radius:50%; border:1px solid var(--border); background:transparent; color:var(--gold); cursor:pointer; }
 .cart-summary { margin-top:24px; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--font-display); letter-spacing:0.08em; font-size:1.2rem; }
 .btn-add-cart { margin-top:14px; width:100%; }
-@media (max-width:640px) { .floating-social { right:14px; bottom:14px; } .float-link { width:40px; height:40px; font-size:0.8rem; } .cart-items li, .cart-summary { align-items:flex-start; flex-direction:column; } }
+@media (max-width:640px) { .floating-social { right:14px; bottom:14px; } .float-link { width:40px; height:40px; } .float-icon { width:21px; height:21px; } .cart-items li, .cart-summary { align-items:flex-start; flex-direction:column; } }
 
 a:focus-visible,
 button:focus-visible,
@@ -1212,6 +1241,9 @@ select:focus-visible,
   }
   .hero-photo-track img {
     animation: photoTicker 40s linear infinite !important;
+  }
+  .floating-social.is-closing {
+    animation: socialDescend 0.48s ease-in forwards !important;
   }
 }
 
