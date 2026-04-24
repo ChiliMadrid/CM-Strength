@@ -1,4 +1,6 @@
-﻿# CM Strength Website
+# CM Strength Website
+
+New design for the coaching site.
 
 Refactored static site structure:
 
@@ -18,4 +20,3 @@ Refactored static site structure:
 Upload the brand logo as `assets/logo.png`; the header will use it automatically and fall back to the CM text mark if it is missing.
 
 Run the site from a local web server so the shared partials can load with `fetch`.
-
