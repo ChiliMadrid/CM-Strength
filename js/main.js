@@ -366,12 +366,22 @@ function initCursor() {
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
   if (!cursor || !cursorRing || window.matchMedia('(pointer: coarse)').matches) return;
-  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+  const trailDots = Array.from({ length: 6 }, () => {
+    const dot = document.createElement('span');
+    dot.className = 'cursor-trail';
+    document.body.appendChild(dot);
+    return { el: dot, x: 0, y: 0 };
+  });
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let ringX = mouseX;
+  let ringY = mouseY;
 
   document.addEventListener('mousemove', e => {
     mouseX = e.clientX; mouseY = e.clientY;
     cursor.style.left = mouseX + 'px';
     cursor.style.top = mouseY + 'px';
+    document.body.classList.add('cursor-ready');
   });
 
   function animateRing() {
@@ -379,22 +389,29 @@ function initCursor() {
     ringY += (mouseY - ringY) * 0.15;
     cursorRing.style.left = ringX + 'px';
     cursorRing.style.top = ringY + 'px';
+    trailDots.forEach((dot, index) => {
+      const leader = index === 0 ? { x: ringX, y: ringY } : trailDots[index - 1];
+      dot.x += (leader.x - dot.x) * 0.22;
+      dot.y += (leader.y - dot.y) * 0.22;
+      dot.el.style.left = dot.x + 'px';
+      dot.el.style.top = dot.y + 'px';
+      dot.el.style.opacity = String(Math.max(0.05, 0.22 - index * 0.028));
+    });
     requestAnimationFrame(animateRing);
   }
   animateRing();
 
-  document.querySelectorAll('a, button, .service-card, .program-card, .blog-card, .package-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '20px'; cursor.style.height = '20px';
-      cursorRing.style.width = '52px'; cursorRing.style.height = '52px';
-      cursorRing.style.opacity = '0.8';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '10px'; cursor.style.height = '10px';
-      cursorRing.style.width = '36px'; cursorRing.style.height = '36px';
-      cursorRing.style.opacity = '0.5';
-    });
+  const interactiveSelector = 'a, button, input, textarea, select, label, [role="button"], .service-card, .program-card, .blog-card, .package-card, .radio-btn';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(interactiveSelector)) document.body.classList.add('cursor-hover');
   });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(interactiveSelector)) document.body.classList.remove('cursor-hover');
+  });
+  document.addEventListener('mousedown', () => document.body.classList.add('cursor-down'));
+  document.addEventListener('mouseup', () => document.body.classList.remove('cursor-down'));
+  document.addEventListener('mouseleave', () => document.body.classList.remove('cursor-ready', 'cursor-hover', 'cursor-down'));
+  document.addEventListener('mouseenter', () => document.body.classList.add('cursor-ready'));
 }
 
 window.addEventListener('scroll', () => {
