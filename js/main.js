@@ -106,10 +106,10 @@ function saveCart(items) {
   localStorage.setItem(CART_KEY, JSON.stringify(items));
 }
 
-function addToCart(name, price, type) {
+function addToCart(name, price, type, file) {
   const items = getCart();
   const id = globalThis.crypto && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
-  items.push({ id, name, price: parseWon(price), type });
+  items.push({ id, name, price: parseWon(price), type, file: file || '' });
   saveCart(items);
   renderCart();
   if (currentPageName() !== 'cart') window.location.href = 'cart.html';
@@ -142,9 +142,17 @@ function renderCart() {
       const actions = document.createElement('div');
       const price = document.createElement('span');
       const remove = document.createElement('button');
+      const fileLink = item.file ? document.createElement('a') : null;
       name.textContent = item.name;
       type.textContent = localizeCartType(item.type);
       price.textContent = formatWon(item.price);
+      if (fileLink) {
+        fileLink.className = 'cart-file-link';
+        fileLink.href = item.file;
+        fileLink.target = '_blank';
+        fileLink.rel = 'noreferrer';
+        fileLink.textContent = currentLang === 'ko' ? 'PDF 열기' : 'Open PDF';
+      }
       remove.className = 'cart-remove';
       remove.type = 'button';
       remove.textContent = 'x';
@@ -152,6 +160,7 @@ function renderCart() {
       remove.addEventListener('click', () => removeFromCart(item.id));
       details.append(name, document.createElement('br'), type);
       actions.className = 'cart-item-actions';
+      if (fileLink) actions.append(fileLink);
       actions.append(price, remove);
       li.append(details, actions);
       list.appendChild(li);
@@ -163,7 +172,7 @@ function wireCart() {
   document.querySelectorAll('[data-add-cart]').forEach(btn => {
     btn.addEventListener('click', event => {
       event.preventDefault();
-      addToCart(btn.dataset.name, btn.dataset.price, btn.dataset.type);
+      addToCart(btn.dataset.name, btn.dataset.price, btn.dataset.type, btn.dataset.file);
     });
   });
 

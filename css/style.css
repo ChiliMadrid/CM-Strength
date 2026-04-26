@@ -384,8 +384,8 @@ p { color: var(--text-muted); line-height: 1.85; }
   inset: 0;
   z-index: 1;
   overflow: hidden;
-  opacity: 0.36;
-  mask-image: linear-gradient(90deg, transparent 0%, black 14%, black 86%, transparent 100%);
+  opacity: 0.72;
+  mask-image: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
 }
 .hero-photo-ticker::before,
 .hero-photo-ticker::after {
@@ -397,8 +397,8 @@ p { color: var(--text-muted); line-height: 1.85; }
 }
 .hero-photo-ticker::before {
   background:
-    linear-gradient(90deg, rgba(7,7,7,0.94) 0%, rgba(7,7,7,0.42) 46%, rgba(7,7,7,0.94) 100%),
-    linear-gradient(0deg, rgba(7,7,7,0.98) 0%, rgba(7,7,7,0.25) 48%, rgba(7,7,7,0.88) 100%);
+    linear-gradient(90deg, rgba(7,7,7,0.82) 0%, rgba(7,7,7,0.24) 46%, rgba(7,7,7,0.82) 100%),
+    linear-gradient(0deg, rgba(7,7,7,0.84) 0%, rgba(7,7,7,0.12) 48%, rgba(7,7,7,0.72) 100%);
 }
 .hero-photo-ticker::after {
   background: radial-gradient(ellipse 50% 38% at 50% 52%, rgba(201,168,76,0.14), transparent 70%);
@@ -414,10 +414,10 @@ p { color: var(--text-muted); line-height: 1.85; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.18) brightness(0.78);
+  filter: grayscale(0.72) contrast(1.16) brightness(0.92);
   opacity: 0;
   transform: scale(1.04);
-  animation: photoTicker 40s linear infinite;
+  animation: photoTicker 45s linear infinite;
 }
 .hero-photo-track img:nth-child(1) { animation-delay: 0s; }
 .hero-photo-track img:nth-child(2) { animation-delay: 5s; }
@@ -427,11 +427,12 @@ p { color: var(--text-muted); line-height: 1.85; }
 .hero-photo-track img:nth-child(6) { animation-delay: 25s; }
 .hero-photo-track img:nth-child(7) { animation-delay: 30s; }
 .hero-photo-track img:nth-child(8) { animation-delay: 35s; }
+.hero-photo-track img:nth-child(9) { animation-delay: 40s; }
 @keyframes photoTicker {
   0% { opacity: 0; transform: scale(1.04); }
-  2% { opacity: 0.95; }
-  11.5% { opacity: 0.95; }
-  14% { opacity: 0; transform: scale(1.08); }
+  2% { opacity: 1; }
+  9.5% { opacity: 1; }
+  11.5% { opacity: 0; transform: scale(1.1); }
   100% { opacity: 0; transform: scale(1.08); }
 }
 .hero-grid-lines {
@@ -615,6 +616,7 @@ p { color: var(--text-muted); line-height: 1.85; }
   font-family: var(--font-display);
   font-size: 2.2rem; color: var(--gold); line-height: 1;
 }
+.cred-number-text { font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.05; }
 .cred-text { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
 .who-grid {
   display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
@@ -865,7 +867,7 @@ p { color: var(--text-muted); line-height: 1.85; }
 .program-cover-flame { background-image: url('../assets/ChatGPT Image Apr 16, 2026, 07_24_33 PM.png'); background-position: center 34%; }
 .program-cover-lotus { background-image: url('../assets/Lotus Hero.png'); background-position: center 38%; }
 .program-cover-dynasty { background-image: url('../assets/CM_Strength_Dynasty_Cover_Image.png'); background-position: center 34%; }
-.program-cover-hell { background-image: url('../assets/cm-d4bfefd9ce89319b.jpg'); background-position: center 34%; }
+.program-cover-hell { background-image: url('../assets/cm-9b7cb546934b358c.jpg'); background-position: center 38%; }
 .program-card:hover { border-color: var(--gold-dim); background: var(--surface2); }
 .program-card::after {
   content:''; position: absolute; bottom: 0; left: 0;
@@ -1206,6 +1208,8 @@ footer {
 .cart-items li { display:flex; justify-content:space-between; gap:20px; align-items:center; padding:16px 0; border-bottom:1px solid var(--border); }
 .cart-items small { color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; font-size:0.68rem; }
 .cart-item-actions { display:flex; align-items:center; gap:14px; white-space:nowrap; }
+.cart-file-link { color:var(--gold); text-decoration:none; font-family:var(--font-display); letter-spacing:0.08em; text-transform:uppercase; font-size:0.82rem; border:1px solid var(--gold-dim); padding:7px 12px; }
+.cart-file-link:hover { background:var(--gold-bg); border-color:var(--gold); }
 .cart-remove { width:30px; height:30px; border-radius:50%; border:1px solid var(--border); background:transparent; color:var(--gold); cursor:pointer; }
 .cart-summary { margin-top:24px; display:flex; justify-content:space-between; align-items:center; gap:20px; font-family:var(--font-display); letter-spacing:0.08em; font-size:1.2rem; }
 .btn-add-cart { margin-top:14px; width:100%; }
