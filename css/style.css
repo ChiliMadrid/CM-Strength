@@ -1149,27 +1149,47 @@ footer {
 @media (max-width: 768px) {
   body { cursor: auto; }
   .cursor, .cursor-ring, .cursor-trail { display: none; }
-  nav { padding: 0 20px; height: 60px; }
+  nav { padding: 0 18px; height: 60px; }
   .logo-mark { width: 132px; height: 42px; }
   .nav-links, .btn-nav { display: none; }
   .hamburger { display: flex; }
-  section { padding: 70px 20px; }
+  .mobile-menu { padding: 72px 20px 36px; overflow-y: auto; }
+  .mobile-menu a { font-size: clamp(1.8rem, 10vw, 2.5rem); line-height: 1; }
+  section { padding: 68px 20px; }
   .display-xl { font-size: clamp(3rem, 12vw, 5rem); }
   .display-lg { font-size: clamp(2.5rem, 9vw, 4rem); }
-  .hero { padding: 0 20px; }
+  .display-md { font-size: clamp(2rem, 9vw, 3.2rem); }
+  .hero { min-height: 92vh; padding: 0 20px; }
+  .hero-content { padding-top: 60px; }
+  .hero-subtitle { max-width: 34rem; font-size: 0.94rem; line-height: 1.75; margin: 1.4rem auto; }
+  .hero-eyebrow { gap: 10px; letter-spacing: 0.18em; margin-bottom: 1.4rem; }
+  .hero-eyebrow::before, .hero-eyebrow::after { width: 18px; }
+  .hero-photo-track img { flex-basis: 64vw; }
+  .hero-grid-lines { opacity: 0.55; background-size: 42px 42px; }
+  .btn { width: min(100%, 360px); justify-content: center; padding: 13px 24px; }
   .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 36px 24px; }
   .about-story-grid { grid-template-columns: 1fr; gap: 40px; }
   .credentials-grid { grid-template-columns: 1fr 1fr; }
+  .cred-item { padding: 24px 18px; }
   .who-grid { grid-template-columns: 1fr; }
+  .who-item { padding: 26px 22px; }
   .packages-grid { grid-template-columns: 1fr; }
+  .package-card { padding: 34px 24px; }
   .process-steps { grid-template-columns: 1fr; }
   .transformation-card { grid-template-columns: 1fr; padding: 30px 20px; gap: 28px; }
   .transformation-image { min-height: 320px; }
   .calc-grid { grid-template-columns: 1fr; }
   .programs-grid { grid-template-columns: 1fr; }
+  .program-card { padding: 38px 26px; }
+  .program-cover { height: 230px; margin: -38px -26px 28px; }
   .level-guide { grid-template-columns: repeat(2, 1fr); }
   .blog-grid { grid-template-columns: 1fr; }
   .blog-featured { grid-column: auto; display: flex; flex-direction: column; }
+  .blog-featured .blog-card-body, .blog-card-body { padding: 30px 24px; }
+  .blog-article-shell { width: min(100%, 90vw); }
+  .blog-article-hero { padding: 116px 20px 50px; }
+  .blog-article { padding-top: 36px; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 30px; }
   .footer-bottom { flex-direction: column; text-align: center; }
@@ -1180,6 +1200,52 @@ footer {
   .calculator { padding: 30px 20px; }
   .hero-actions { flex-direction: column; align-items: center; }
   .hero-scroll { display: none; }
+  .coaching-hero, .blog-hero, .inquire-hero { padding: 118px 20px 64px; }
+  .about-hero { min-height: 48vh; padding: 110px 20px 64px; }
+  .cart-page-card { margin-top: 28px; padding: 26px 20px; }
+  .cart-actions { flex-direction: column; }
+  .cart-actions .btn { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  nav { padding: 0 14px; }
+  .logo-mark { width: 116px; height: 38px; }
+  section { padding: 58px 16px; }
+  .section-label { font-size: 0.62rem; letter-spacing: 0.16em; align-items: flex-start; }
+  .gold-line { width: 28px; margin-right: 9px; margin-top: 0.58em; }
+  .display-xl { font-size: clamp(2.9rem, 18vw, 4.35rem); line-height: 0.96; }
+  .display-lg { font-size: clamp(2.35rem, 15vw, 3.55rem); }
+  .hero { min-height: 88vh; }
+  .hero-content { padding-top: 52px; }
+  .hero-title { overflow-wrap: anywhere; }
+  .hero-actions { gap: 12px; margin-top: 1.8rem; }
+  .hero-photo-ticker { opacity: 0.62; mask-image: none; }
+  .hero-photo-track img { flex-basis: 78vw; }
+  .ticker-wrap { padding: 9px 0; }
+  .ticker-item { font-size: 0.74rem; padding: 0 20px; letter-spacing: 0.16em; }
+  .stats-grid, .credentials-grid, .philosophy-pillars, .level-guide { grid-template-columns: 1fr; }
+  .stat-item { padding: 30px 22px; }
+  .service-card, .package-card, .who-item, .pillar, .step, .level-item { padding: 28px 20px; }
+  .program-card { padding: 34px 20px; }
+  .program-cover { height: 210px; margin: -34px -20px 26px; }
+  .program-actions { flex-direction: column; }
+  .btn-program { width: 100%; flex: none; }
+  .transformation-card { margin: 44px 0 28px; padding: 24px 16px; }
+  .transformation-copy h2 { font-size: clamp(2.15rem, 13vw, 3.2rem); }
+  .transformation-copy p { font-size: 0.9rem; line-height: 1.85; }
+  .transformation-image { min-height: 260px; }
+  .calculator { margin-top: 42px; padding: 26px 16px; }
+  .calc-total { font-size: 2.35rem; }
+  .process-steps { margin-top: 28px; }
+  .blog-card-img { font-size: 3rem; }
+  .blog-featured .blog-card-img { min-height: 180px; }
+  .blog-featured .blog-card-body, .blog-card-body { padding: 26px 20px; }
+  .blog-article p { font-size: 0.94rem; line-height: 1.82; }
+  .footer-logo-img { width: min(210px, 100%); }
+  footer { padding: 60px 20px 34px; }
+  .floating-social { right:10px; bottom:max(10px, env(safe-area-inset-bottom)); gap:6px; }
+  .float-link { width:36px; height:36px; }
+  .float-close { width:27px; height:27px; }
 }
 
 /* ─── Utility ─── */
