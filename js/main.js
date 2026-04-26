@@ -91,6 +91,22 @@ function formatWon(value) {
   return 'KRW ' + Number(value || 0).toLocaleString('ko-KR');
 }
 
+function currencyForItem(item) {
+  if (item.currency) return item.currency;
+  if (item.type === 'Coaching') return 'USD';
+  return 'KRW';
+}
+
+function currencyFromPrice(price, type) {
+  if (String(price || '').trim().startsWith('$') || type === 'Coaching') return 'USD';
+  return 'KRW';
+}
+
+function formatMoney(value, currency = 'KRW') {
+  if (currency === 'USD') return '$' + Number(value || 0).toLocaleString('en-US');
+  return formatWon(value);
+}
+
 function localizeCartType(type) {
   if (currentLang !== 'ko') return type || '';
   if (type === 'Coaching') return '코칭';
@@ -115,7 +131,7 @@ function saveCart(items) {
 function addToCart(name, price, type, file) {
   const items = getCart();
   const id = globalThis.crypto && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
-  items.push({ id, name, price: parseWon(price), type, file: file || '' });
+  items.push({ id, name, price: parseWon(price), type, file: file || '', currency: currencyFromPrice(price, type) });
   saveCart(items);
   renderCart();
   if (currentPageName() !== 'cart') window.location.href = 'cart.html';
@@ -129,8 +145,12 @@ function removeFromCart(id) {
 function renderCart() {
   const items = getCart();
   const total = items.reduce((sum, item) => sum + Number(item.price || 0), 0);
+  const currencies = new Set(items.map(currencyForItem));
+  const cartCurrency = currencies.size === 1 ? Array.from(currencies)[0] : null;
   document.querySelectorAll('.cart-count').forEach(el => { el.textContent = items.length; });
-  document.querySelectorAll('.cart-total').forEach(el => { el.textContent = formatWon(total); });
+  document.querySelectorAll('.cart-total').forEach(el => {
+    el.textContent = cartCurrency ? formatMoney(total, cartCurrency) : (currentLang === 'ko' ? '혼합 통화' : 'Mixed currencies');
+  });
   document.querySelectorAll('.cart-items').forEach(list => {
     list.replaceChildren();
     if (!items.length) {
@@ -149,9 +169,10 @@ function renderCart() {
       const price = document.createElement('span');
       const remove = document.createElement('button');
       const fileLink = item.file ? document.createElement('a') : null;
+      const itemCurrency = currencyForItem(item);
       name.textContent = item.name;
       type.textContent = localizeCartType(item.type);
-      price.textContent = formatWon(item.price);
+      price.textContent = formatMoney(item.price, itemCurrency);
       if (fileLink) {
         fileLink.className = 'cart-file-link';
         fileLink.href = item.file;
@@ -234,14 +255,14 @@ function updateCalc() {
   const selection = getPaidInFullSelection();
   if (!selection || !totalEl || !discEl || !monthlyEl) return;
 
-  totalEl.textContent = formatWon(selection.total);
+  totalEl.textContent = formatMoney(selection.total, 'USD');
 
   if (selection.discount > 0) {
     discEl.classList.remove('is-hidden');
     discEl.textContent = (selection.discount * 100) + '% OFF APPLIED';
     monthlyEl.textContent = currentLang === 'ko'
-      ? `${formatWon(selection.rate)}/월 x ${selection.months}개월`
-      : `${formatWon(selection.rate)}/month x ${selection.months} months`;
+      ? `${formatMoney(selection.rate, 'USD')}/월 x ${selection.months}개월`
+      : `${formatMoney(selection.rate, 'USD')}/month x ${selection.months} months`;
   } else {
     discEl.classList.add('is-hidden');
     monthlyEl.textContent = currentLang === 'ko' ? '표준 월 요금' : 'Standard monthly rate';
@@ -252,7 +273,7 @@ function addPaidInFullToCart() {
   const selection = getPaidInFullSelection();
   if (!selection) return;
   const monthLabel = currentLang === 'ko' ? `${selection.months}개월` : `${selection.months} month${selection.months === 1 ? '' : 's'}`;
-  addToCart(`${selection.programName} - Paid in Full (${monthLabel})`, selection.total, 'Coaching');
+  addToCart(`${selection.programName} - Paid in Full (${monthLabel})`, '$' + selection.total, 'Coaching');
 }
 
 // Radio buttons
