@@ -93,12 +93,12 @@ function formatWon(value) {
 
 function currencyForItem(item) {
   if (item.currency) return item.currency;
-  if (item.type === 'Coaching') return 'USD';
+  if (item.type === 'Coaching' || item.type === 'PDF Program') return 'USD';
   return 'KRW';
 }
 
 function currencyFromPrice(price, type) {
-  if (String(price || '').trim().startsWith('$') || type === 'Coaching') return 'USD';
+  if (String(price || '').trim().startsWith('$') || type === 'Coaching' || type === 'PDF Program') return 'USD';
   return 'KRW';
 }
 
