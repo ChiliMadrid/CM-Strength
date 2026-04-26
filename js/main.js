@@ -34,6 +34,12 @@ function applyLang() {
 }
 
 // Navigation
+const SITE_ROOT = window.location.pathname.includes('/posts/') ? '../' : '';
+
+function sitePath(path) {
+  return SITE_ROOT + path;
+}
+
 const PAGE_ROUTES = {
   home: 'home.html',
   about: 'aboutme.html',
@@ -51,7 +57,7 @@ function currentPageName() {
 function navigate(page) {
   const route = PAGE_ROUTES[page];
   if (route && !document.getElementById('page-' + page)) {
-    window.location.href = route;
+    window.location.href = sitePath(route);
     return;
   }
 
@@ -281,9 +287,15 @@ async function loadPartial(targetId, url) {
 
 async function loadSharedPartials() {
   await Promise.all([
-    loadPartial('site-header', 'partials/header.html'),
-    loadPartial('site-footer', 'partials/footer.html')
+    loadPartial('site-header', sitePath('partials/header.html')),
+    loadPartial('site-footer', sitePath('partials/footer.html'))
   ]);
+}
+
+function initSharedAssetPaths() {
+  document.querySelectorAll('.brand-logo-img, .footer-logo-img').forEach(img => {
+    img.setAttribute('src', sitePath('assets/logo.png'));
+  });
 }
 
 function initLogoFallback() {
@@ -454,6 +466,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   setActiveNav();
+  initSharedAssetPaths();
   initLogoFallback();
   wireSharedEvents();
   wireContactForm();
