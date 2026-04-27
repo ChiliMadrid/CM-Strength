@@ -5,35 +5,41 @@ const { getProduct, getPdfPath } = require('./_lib/products');
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_missing');
 const OWNER_EMAIL = process.env.SITE_OWNER_EMAIL || 'coach.cmstrength@gmail.com';
+const REPLY_TO_EMAIL = process.env.RESEND_REPLY_TO_EMAIL || OWNER_EMAIL;
 
 async function sendPdfEmail({ to, products, sessionId }) {
   if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
     throw new Error('PDF email delivery is not configured.');
   }
 
-  const attachments = products
-    .map(product => {
-      const filePath = getPdfPath(product);
-      if (!filePath || !fs.existsSync(filePath)) return null;
-      return {
-        filename: product.filename,
-        content: fs.readFileSync(filePath).toString('base64')
-      };
-    })
-    .filter(Boolean);
+  const attachments = products.map(product => {
+    const filePath = getPdfPath(product);
+    if (!filePath || !fs.existsSync(filePath)) {
+      throw new Error(`PDF file is missing for ${product.name}.`);
+    }
 
-  if (!attachments.length) return;
+    return {
+      filename: product.filename,
+      content: fs.readFileSync(filePath).toString('base64')
+    };
+  });
+
+  if (!attachments.length) {
+    throw new Error('No PDF attachments were generated.');
+  }
 
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Idempotency-Key': `cm-strength-pdf-${sessionId}`
     },
     body: JSON.stringify({
       from: process.env.RESEND_FROM_EMAIL,
       to,
       bcc: [OWNER_EMAIL],
+      reply_to: REPLY_TO_EMAIL,
       subject: 'Your CM Strength PDF program',
       html: `
         <p>Thank you for your CM Strength purchase.</p>
@@ -89,6 +95,7 @@ module.exports = async function handler(req, res) {
 
     return res.status(200).json({ received: true });
   } catch (error) {
+    console.error('Stripe webhook processing failed:', error);
     return res.status(500).json({ error: error.message || 'Webhook processing failed.' });
   }
 };
