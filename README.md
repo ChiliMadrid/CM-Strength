@@ -43,3 +43,5 @@ Listen for:
 - `checkout.session.completed`
 
 PDF files are stored under `api/_private/EnglishPDF` so the browser does not receive a public download path. The webhook emails purchased PDFs only after Stripe confirms payment.
+
+The success page also calls `/api/fulfill-checkout-session` with Stripe's `session_id` after redirect. That endpoint retrieves the Checkout Session from Stripe, verifies `payment_status=paid`, and sends the same PDF email as a fallback. Resend idempotency prevents duplicate delivery when both the webhook and success page run.

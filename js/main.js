@@ -533,6 +533,34 @@ function wireStripeCheckoutForm() {
   });
 }
 
+async function fulfillCheckoutSession() {
+  const statusEl = document.getElementById('paymentFulfillmentStatus');
+  if (!statusEl) return;
+
+  const sessionId = new URLSearchParams(window.location.search).get('session_id');
+  if (!sessionId) {
+    statusEl.textContent = 'Payment confirmed. If you purchased a PDF, check your email shortly.';
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/fulfill-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ session_id: sessionId })
+    });
+    const data = await response.json();
+
+    if (!response.ok) throw new Error(data.error || 'Delivery confirmation is still processing.');
+
+    statusEl.textContent = data.delivered
+      ? 'PDF delivery has been triggered. Check your inbox and spam folder.'
+      : 'Payment confirmed. Coaching clients will receive next steps by email.';
+  } catch (error) {
+    statusEl.textContent = `${error.message} If your email does not arrive, contact coach.cmstrength@gmail.com with your checkout reference.`;
+  }
+}
+
 function initFloatingSocials() {
   const social = document.querySelector('.floating-social');
   const close = document.querySelector('.float-close');
@@ -610,6 +638,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (window.location.pathname.endsWith('payment-success.html')) {
     saveCart([]);
+    fulfillCheckoutSession();
   }
 
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));

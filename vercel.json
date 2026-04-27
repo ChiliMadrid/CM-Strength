@@ -3,6 +3,9 @@
   "functions": {
     "api/stripe-webhook.js": {
       "includeFiles": "api/_private/EnglishPDF/**"
+    },
+    "api/fulfill-checkout-session.js": {
+      "includeFiles": "api/_private/EnglishPDF/**"
     }
   }
 }

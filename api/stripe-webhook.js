@@ -1,60 +1,8 @@
-const fs = require('fs');
 const Stripe = require('stripe');
 const getRawBody = require('raw-body');
-const { getProduct, getPdfPath } = require('./_lib/products');
+const { deliverSessionPdfs } = require('./_lib/pdf-delivery');
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_missing');
-const OWNER_EMAIL = process.env.SITE_OWNER_EMAIL || 'coach.cmstrength@gmail.com';
-const REPLY_TO_EMAIL = process.env.RESEND_REPLY_TO_EMAIL || OWNER_EMAIL;
-
-async function sendPdfEmail({ to, products, sessionId }) {
-  if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
-    throw new Error('PDF email delivery is not configured.');
-  }
-
-  const attachments = products.map(product => {
-    const filePath = getPdfPath(product);
-    if (!filePath || !fs.existsSync(filePath)) {
-      throw new Error(`PDF file is missing for ${product.name}.`);
-    }
-
-    return {
-      filename: product.filename,
-      content: fs.readFileSync(filePath).toString('base64')
-    };
-  });
-
-  if (!attachments.length) {
-    throw new Error('No PDF attachments were generated.');
-  }
-
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-      'Idempotency-Key': `cm-strength-pdf-${sessionId}`
-    },
-    body: JSON.stringify({
-      from: process.env.RESEND_FROM_EMAIL,
-      to,
-      bcc: [OWNER_EMAIL],
-      reply_to: REPLY_TO_EMAIL,
-      subject: 'Your CM Strength PDF program',
-      html: `
-        <p>Thank you for your CM Strength purchase.</p>
-        <p>Your PDF program${attachments.length > 1 ? 's are' : ' is'} attached to this email.</p>
-        <p>If you have any trouble opening the file, reply to this email with your checkout reference: ${sessionId}.</p>
-      `,
-      attachments
-    })
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`Resend email failed: ${text}`);
-  }
-}
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -79,18 +27,7 @@ module.exports = async function handler(req, res) {
   try {
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object;
-      const customerEmail = session.customer_details?.email || session.customer_email;
-      const productKeys = String(session.metadata?.product_keys || '')
-        .split(',')
-        .map(key => key.trim())
-        .filter(Boolean);
-      const pdfProducts = productKeys
-        .map(getProduct)
-        .filter(product => product && product.type === 'pdf');
-
-      if (customerEmail && pdfProducts.length) {
-        await sendPdfEmail({ to: customerEmail, products: pdfProducts, sessionId: session.id });
-      }
+      await deliverSessionPdfs(session);
     }
 
     return res.status(200).json({ received: true });
