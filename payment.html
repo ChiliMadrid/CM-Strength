@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Payment | CM Strength</title>
-<meta name="description" content="CM Strength secure checkout mockup.">
+<meta name="description" content="CM Strength secure Stripe Checkout handoff.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
@@ -24,49 +24,45 @@
         <div class="payment-visual-copy">
           <span class="payment-kicker">CM Strength</span>
           <h1>Secure Checkout</h1>
-          <p>This mock payment screen represents where Stripe checkout will be connected.</p>
+          <p>Payment details are collected on Stripe-hosted Checkout, not on this website.</p>
         </div>
       </div>
 
       <div class="payment-panel">
-        <div class="payment-badge">Stripe-style mockup</div>
+        <div class="payment-badge">Stripe Checkout</div>
         <h2>Complete Payment</h2>
-        <p class="payment-subtext">Review your coaching package, then enter payment details. This page is a visual mockup and does not process live payments yet.</p>
+        <p class="payment-subtext">Review your coaching package, then continue to Stripe's hosted payment page. Card details are handled by Stripe.</p>
 
         <div class="payment-summary">
           <div>
             <span>Selected service</span>
-            <strong>CM Strength Coaching</strong>
+            <strong id="paymentServiceLabel">Virtual Coaching</strong>
           </div>
           <div>
             <span>Due today</span>
-            <strong>$150+</strong>
+            <strong id="paymentAmountLabel">$150</strong>
           </div>
         </div>
 
-        <form class="payment-form">
+        <form class="payment-form" id="stripeCheckoutForm">
           <div class="form-field full">
             <label class="form-label" for="payEmail">Email</label>
-            <input class="form-input" id="payEmail" type="email" placeholder="client@email.com">
+            <input class="form-input" id="payEmail" name="email" type="email" autocomplete="email" required placeholder="client@email.com">
           </div>
           <div class="form-field full">
-            <label class="form-label" for="payCard">Card Number</label>
-            <input class="form-input" id="payCard" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242">
+            <label class="form-label" for="paymentPackage">Package</label>
+            <select class="form-select2" id="paymentPackage" name="package" required>
+              <option value="virtual">Virtual Coaching - $150</option>
+              <option value="body-profile">Body Profile - $300</option>
+              <option value="hybrid">Hybrid Coaching - $450</option>
+              <option value="s-tier">S-Tier - $600</option>
+            </select>
           </div>
-          <div class="payment-fields">
-            <div class="form-field">
-              <label class="form-label" for="payExpiry">Expiry</label>
-              <input class="form-input" id="payExpiry" type="text" placeholder="MM / YY">
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="payCvc">CVC</label>
-              <input class="form-input" id="payCvc" type="text" inputmode="numeric" placeholder="123">
-            </div>
-          </div>
-          <button class="btn btn-gold btn-full" type="button">
-            <span>Pay Securely</span>
+          <button class="btn btn-gold btn-full" type="submit">
+            <span>Continue to Stripe</span>
             <span class="btn-arrow">→</span>
           </button>
+          <p class="payment-status" id="paymentStatus" role="status"></p>
         </form>
       </div>
     </div>

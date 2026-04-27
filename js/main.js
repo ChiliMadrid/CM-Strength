@@ -52,6 +52,13 @@ const PAGE_ROUTES = {
   inquire: 'contact.html'
 };
 
+const PAYMENT_PACKAGES = {
+  virtual: { label: 'Virtual Coaching', amount: '$150' },
+  'body-profile': { label: 'Body Profile', amount: '$300' },
+  hybrid: { label: 'Hybrid Coaching', amount: '$450' },
+  's-tier': { label: 'S-Tier', amount: '$600' }
+};
+
 function currentPageName() {
   return document.body.dataset.page || document.querySelector('.page.active')?.id.replace('page-', '') || 'home';
 }
@@ -452,6 +459,46 @@ function wireIntakeForm() {
   });
 }
 
+function wireStripeCheckoutForm() {
+  const form = document.getElementById('stripeCheckoutForm');
+  if (!form) return;
+
+  const packageEl = document.getElementById('paymentPackage');
+  const serviceEl = document.getElementById('paymentServiceLabel');
+  const amountEl = document.getElementById('paymentAmountLabel');
+  const statusEl = document.getElementById('paymentStatus');
+
+  const syncSummary = () => {
+    const selected = PAYMENT_PACKAGES[packageEl?.value] || PAYMENT_PACKAGES.virtual;
+    if (serviceEl) serviceEl.textContent = selected.label;
+    if (amountEl) amountEl.textContent = selected.amount;
+  };
+
+  packageEl?.addEventListener('change', syncSummary);
+  syncSummary();
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (statusEl) statusEl.textContent = 'Creating secure Stripe Checkout...';
+
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: form.email.value,
+          package: packageEl.value
+        })
+      });
+      const data = await response.json();
+      if (!response.ok || !data.url) throw new Error(data.error || 'Checkout is not available yet.');
+      window.location.href = data.url;
+    } catch (error) {
+      if (statusEl) statusEl.textContent = error.message;
+    }
+  });
+}
+
 function initFloatingSocials() {
   const social = document.querySelector('.floating-social');
   const close = document.querySelector('.float-close');
@@ -540,6 +587,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   wireSharedEvents();
   wireContactForm();
   wireIntakeForm();
+  wireStripeCheckoutForm();
   initFloatingSocials();
   wireCart();
   updateCalc();

@@ -1,0 +1,8 @@
+{
+  "name": "cm-strength-site",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "stripe": "latest"
+  }
+}

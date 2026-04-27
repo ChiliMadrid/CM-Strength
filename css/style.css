@@ -1253,10 +1253,25 @@ footer {
   display: grid;
   gap: 16px;
 }
-.payment-fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+.payment-status { min-height: 1.6em; color: var(--gold); font-size: 0.82rem; }
+.payment-confirmation {
+  width: min(760px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 56px;
+  text-align: center;
+}
+.payment-confirmation h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin: 18px 0;
+}
+.payment-confirmation p {
+  max-width: 520px;
+  margin: 0 auto 30px;
 }
 
 /* ─── Responsive ─── */
@@ -1376,7 +1391,8 @@ footer {
   .payment-shell { min-height: auto; }
   .payment-visual { min-height: 260px; }
   .payment-panel { padding: 28px 18px; }
-  .payment-summary, .payment-fields { grid-template-columns: 1fr; }
+  .payment-summary { grid-template-columns: 1fr; }
+  .payment-confirmation { padding: 34px 22px; }
   .floating-social { right:10px; bottom:max(10px, env(safe-area-inset-bottom)); gap:6px; }
   .float-link { width:36px; height:36px; }
   .float-close { width:27px; height:27px; }
