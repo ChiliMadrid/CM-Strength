@@ -4,6 +4,7 @@ const getRawBody = require('raw-body');
 const { getProduct, getPdfPath } = require('./_lib/products');
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_missing');
+const OWNER_EMAIL = process.env.SITE_OWNER_EMAIL || 'coach.cmstrength@gmail.com';
 
 async function sendPdfEmail({ to, products, sessionId }) {
   if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
@@ -32,7 +33,7 @@ async function sendPdfEmail({ to, products, sessionId }) {
     body: JSON.stringify({
       from: process.env.RESEND_FROM_EMAIL,
       to,
-      bcc: process.env.SITE_OWNER_EMAIL ? [process.env.SITE_OWNER_EMAIL] : undefined,
+      bcc: [OWNER_EMAIL],
       subject: 'Your CM Strength PDF program',
       html: `
         <p>Thank you for your CM Strength purchase.</p>

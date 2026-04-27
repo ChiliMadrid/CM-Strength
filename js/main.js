@@ -91,6 +91,7 @@ function setActiveNav() {
 
 // Cart
 const CART_KEY = 'cmStrengthCartItems';
+const CONTACT_EMAIL = 'coach.cmstrength@gmail.com';
 
 function parseWon(value) {
   return Number(String(value || '').replace(/[^0-9]/g, '')) || 0;
@@ -433,7 +434,7 @@ function wireContactForm() {
       'Message:',
       data.get('message') || ''
     ].join('\n'));
-    window.location.href = `mailto:madridchili96@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   });
 }
 
@@ -450,7 +451,7 @@ function wireIntakeForm() {
     }
     const subject = encodeURIComponent('CM Strength client intake form');
     const body = encodeURIComponent(lines.join('\n'));
-    window.location.href = `mailto:madridchili96@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     setTimeout(() => {
       window.location.href = sitePath('payment.html');
     }, 900);

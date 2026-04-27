@@ -31,7 +31,7 @@ Required Vercel environment variables:
 - `STRIPE_WEBHOOK_SECRET`: Signing secret for the Stripe webhook endpoint.
 - `RESEND_API_KEY`: Resend API key for PDF email delivery.
 - `RESEND_FROM_EMAIL`: Verified sender, for example `CM Strength <programs@yourdomain.com>`.
-- `SITE_OWNER_EMAIL`: Optional BCC/admin copy email.
+- `SITE_OWNER_EMAIL`: Optional BCC/admin copy email. Defaults to `coach.cmstrength@gmail.com` in the webhook code.
 
 Stripe webhook endpoint:
 
