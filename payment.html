@@ -31,7 +31,7 @@
       <div class="payment-panel">
         <div class="payment-badge">Stripe Checkout</div>
         <h2>Complete Payment</h2>
-        <p class="payment-subtext">Review your coaching package, then continue to Stripe's hosted payment page. Card details are handled by Stripe.</p>
+        <p class="payment-subtext">Review your cart, then continue to Stripe's hosted payment page. Card details are handled by Stripe.</p>
 
         <div class="payment-summary">
           <div>
@@ -43,6 +43,7 @@
             <strong id="paymentAmountLabel">$150</strong>
           </div>
         </div>
+        <div class="payment-cart-summary" id="paymentCartSummary"></div>
 
         <form class="payment-form" id="stripeCheckoutForm">
           <div class="form-field full">
@@ -52,10 +53,10 @@
           <div class="form-field full">
             <label class="form-label" for="paymentPackage">Package</label>
             <select class="form-select2" id="paymentPackage" name="package" required>
-              <option value="virtual">Virtual Coaching - $150</option>
-              <option value="body-profile">Body Profile - $300</option>
-              <option value="hybrid">Hybrid Coaching - $450</option>
-              <option value="s-tier">S-Tier - $600</option>
+              <option value="coaching-virtual">Virtual Coaching - $150</option>
+              <option value="coaching-body-profile">Body Profile - $300</option>
+              <option value="coaching-hybrid">Hybrid Coaching - $450</option>
+              <option value="coaching-s-tier">S-Tier - $600</option>
             </select>
           </div>
           <button class="btn btn-gold btn-full" type="submit">

@@ -1249,6 +1249,22 @@ footer {
   font-size: 1.4rem;
   letter-spacing: 0.04em;
 }
+.payment-cart-summary {
+  display: grid;
+  gap: 10px;
+  margin: -12px 0 26px;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+.payment-cart-summary > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+.payment-cart-summary strong { color: var(--gold); white-space: nowrap; }
+.is-hidden { display: none !important; }
 .payment-form {
   display: grid;
   gap: 16px;

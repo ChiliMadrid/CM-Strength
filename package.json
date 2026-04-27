@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "stripe": "latest"
+    "raw-body": "^3.0.0",
+    "stripe": "^20.1.0"
   }
 }

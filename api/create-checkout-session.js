@@ -1,27 +1,61 @@
 const Stripe = require('stripe');
+const { getProduct } = require('./_lib/products');
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2026-02-25.clover'
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_missing');
 
 const PACKAGES = {
   virtual: {
-    name: 'Virtual Coaching',
-    amount: 15000
+    productKey: 'coaching-virtual'
+  },
+  'coaching-virtual': {
+    productKey: 'coaching-virtual'
   },
   'body-profile': {
-    name: 'Body Profile',
-    amount: 30000
+    productKey: 'coaching-body-profile'
+  },
+  'coaching-body-profile': {
+    productKey: 'coaching-body-profile'
   },
   hybrid: {
-    name: 'Hybrid Coaching',
-    amount: 45000
+    productKey: 'coaching-hybrid'
+  },
+  'coaching-hybrid': {
+    productKey: 'coaching-hybrid'
   },
   's-tier': {
-    name: 'S-Tier',
-    amount: 60000
+    productKey: 'coaching-s-tier'
+  },
+  'coaching-s-tier': {
+    productKey: 'coaching-s-tier'
   }
 };
+
+function buildCheckoutItems(body) {
+  const rawItems = Array.isArray(body.items) && body.items.length
+    ? body.items
+    : [{ productKey: PACKAGES[body.package]?.productKey || PACKAGES.virtual.productKey, quantity: 1 }];
+
+  return rawItems.map(item => {
+    const product = getProduct(item.productKey);
+    if (!product) {
+      throw new Error('One or more cart items cannot be checked out yet.');
+    }
+
+    const quantity = Math.max(1, Math.min(Number(item.quantity || 1), 10));
+    const months = product.type === 'coaching'
+      ? Math.max(1, Math.min(Number(item.months || 1), 14))
+      : 1;
+    const discount = months >= 12 ? 0.10 : months >= 6 ? 0.05 : 0;
+    const amount = months > 1
+      ? Math.round(product.amount * months * (1 - discount))
+      : product.amount;
+    const name = months > 1
+      ? `${product.name} - Paid in Full (${months} months)`
+      : product.name;
+
+    return { productKey: item.productKey, product, quantity, amount, name };
+  });
+}
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -35,27 +69,27 @@ module.exports = async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-    const selectedPackage = PACKAGES[body.package] || PACKAGES.virtual;
+    const checkoutItems = buildCheckoutItems(body);
     const origin = req.headers.origin || `https://${req.headers.host}`;
+    const productKeys = checkoutItems.map(item => item.productKey);
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer_email: body.email || undefined,
-      line_items: [
-        {
-          quantity: 1,
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: `CM Strength - ${selectedPackage.name}`
-            },
-            unit_amount: selectedPackage.amount
-          }
+      line_items: checkoutItems.map(item => ({
+        quantity: item.quantity,
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: `CM Strength - ${item.name}`
+          },
+          unit_amount: item.amount
         }
-      ],
+      })),
       metadata: {
-        package: selectedPackage.name,
-        source: 'cm-strength-payment-page'
+        product_keys: productKeys.join(','),
+        has_pdfs: checkoutItems.some(item => item.product.type === 'pdf') ? 'true' : 'false',
+        source: Array.isArray(body.items) && body.items.length ? 'cm-strength-cart' : 'cm-strength-payment-page'
       },
       success_url: `${origin}/payment-success.html?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/payment.html`

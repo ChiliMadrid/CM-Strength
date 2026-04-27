@@ -53,10 +53,10 @@ const PAGE_ROUTES = {
 };
 
 const PAYMENT_PACKAGES = {
-  virtual: { label: 'Virtual Coaching', amount: '$150' },
-  'body-profile': { label: 'Body Profile', amount: '$300' },
-  hybrid: { label: 'Hybrid Coaching', amount: '$450' },
-  's-tier': { label: 'S-Tier', amount: '$600' }
+  'coaching-virtual': { label: 'Virtual Coaching', amount: '$150' },
+  'coaching-body-profile': { label: 'Body Profile', amount: '$300' },
+  'coaching-hybrid': { label: 'Hybrid Coaching', amount: '$450' },
+  'coaching-s-tier': { label: 'S-Tier', amount: '$600' }
 };
 
 function currentPageName() {
@@ -137,10 +137,24 @@ function saveCart(items) {
   localStorage.setItem(CART_KEY, JSON.stringify(items));
 }
 
-function addToCart(name, price, type, file) {
+function addToCart(name, price, type, productKey, months) {
+  if (type === 'PDF Program' && !productKey) {
+    alert('This PDF is not configured for automatic delivery yet. Please choose the English PDF option.');
+    return;
+  }
+
   const items = getCart();
   const id = globalThis.crypto && crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`;
-  items.push({ id, name, price: parseWon(price), type, file: file || '', currency: currencyFromPrice(price, type), purchased: false });
+  items.push({
+    id,
+    name,
+    price: parseWon(price),
+    type,
+    productKey: productKey || '',
+    months: months ? Number(months) : undefined,
+    currency: currencyFromPrice(price, type),
+    purchased: false
+  });
   saveCart(items);
   renderCart();
   if (currentPageName() !== 'cart') window.location.href = 'cart.html';
@@ -177,22 +191,14 @@ function renderCart() {
       const actions = document.createElement('div');
       const price = document.createElement('span');
       const remove = document.createElement('button');
-      const fileLink = item.file && item.purchased ? document.createElement('a') : null;
-      const locked = item.file && !item.purchased ? document.createElement('span') : null;
+      const locked = item.type === 'PDF Program' ? document.createElement('span') : null;
       const itemCurrency = currencyForItem(item);
       name.textContent = item.name;
       type.textContent = localizeCartType(item.type);
       price.textContent = formatMoney(item.price, itemCurrency);
-      if (fileLink) {
-        fileLink.className = 'cart-file-link';
-        fileLink.href = item.file;
-        fileLink.target = '_blank';
-        fileLink.rel = 'noreferrer';
-        fileLink.textContent = currentLang === 'ko' ? 'PDF 열기' : 'Open PDF';
-      }
       if (locked) {
         locked.className = 'cart-locked';
-        locked.textContent = currentLang === 'ko' ? '구매 후 다운로드' : 'Locked until purchase';
+        locked.textContent = currentLang === 'ko' ? '구매 후 이메일 배송' : 'Emailed after purchase';
       }
       remove.className = 'cart-remove';
       remove.type = 'button';
@@ -201,7 +207,6 @@ function renderCart() {
       remove.addEventListener('click', () => removeFromCart(item.id));
       details.append(name, document.createElement('br'), type);
       actions.className = 'cart-item-actions';
-      if (fileLink) actions.append(fileLink);
       if (locked) actions.append(locked);
       actions.append(price, remove);
       li.append(details, actions);
@@ -222,7 +227,7 @@ function wireCart() {
   document.querySelectorAll('[data-add-cart]').forEach(btn => {
     btn.addEventListener('click', event => {
       event.preventDefault();
-      addToCart(btn.dataset.name, btn.dataset.price, btn.dataset.type, btn.dataset.file);
+      addToCart(btn.dataset.name, btn.dataset.price, btn.dataset.type, btn.dataset.productKey);
     });
   });
 
@@ -263,6 +268,7 @@ function getPaidInFullSelection() {
   const selectedProgram = programEl.options[programEl.selectedIndex];
   const rate = parseInt(programEl.value);
   const months = parseInt(monthsEl.value);
+  const productKey = selectedProgram?.getAttribute('data-product-key') || '';
   let discount = 0;
   if (months >= 12) discount = 0.10;
   else if (months >= 6) discount = 0.05;
@@ -272,7 +278,7 @@ function getPaidInFullSelection() {
     .split('—')[0]
     .trim();
 
-  return { programName, rate, months, discount, total };
+  return { programName, rate, months, discount, total, productKey };
 }
 
 function updateCalc() {
@@ -300,7 +306,7 @@ function addPaidInFullToCart() {
   const selection = getPaidInFullSelection();
   if (!selection) return;
   const monthLabel = currentLang === 'ko' ? `${selection.months}개월` : `${selection.months} month${selection.months === 1 ? '' : 's'}`;
-  addToCart(`${selection.programName} - Paid in Full (${monthLabel})`, '$' + selection.total, 'Coaching');
+  addToCart(`${selection.programName} - Paid in Full (${monthLabel})`, '$' + selection.total, 'Coaching', selection.productKey, selection.months);
 }
 
 // Radio buttons
@@ -459,11 +465,40 @@ function wireStripeCheckoutForm() {
   const serviceEl = document.getElementById('paymentServiceLabel');
   const amountEl = document.getElementById('paymentAmountLabel');
   const statusEl = document.getElementById('paymentStatus');
+  const cartSummaryEl = document.getElementById('paymentCartSummary');
+  const cartItems = getCart();
+  const hasCartItems = cartItems.length > 0;
+
+  const checkoutItems = () => getCart().map(item => ({
+    productKey: item.productKey,
+    quantity: 1,
+    months: item.months || undefined
+  }));
 
   const syncSummary = () => {
-    const selected = PAYMENT_PACKAGES[packageEl?.value] || PAYMENT_PACKAGES.virtual;
+    if (hasCartItems) {
+      const total = cartItems.reduce((sum, item) => sum + Number(item.price || 0), 0);
+      if (serviceEl) serviceEl.textContent = `${cartItems.length} cart item${cartItems.length === 1 ? '' : 's'}`;
+      if (amountEl) amountEl.textContent = formatMoney(total, 'USD');
+      if (packageEl) packageEl.closest('.form-field')?.classList.add('is-hidden');
+      if (cartSummaryEl) {
+        cartSummaryEl.replaceChildren(...cartItems.map(item => {
+          const row = document.createElement('div');
+          const name = document.createElement('span');
+          const price = document.createElement('strong');
+          name.textContent = item.name;
+          price.textContent = formatMoney(item.price, 'USD');
+          row.append(name, price);
+          return row;
+        }));
+      }
+      return;
+    }
+
+    const selected = PAYMENT_PACKAGES[packageEl?.value] || PAYMENT_PACKAGES['coaching-virtual'];
     if (serviceEl) serviceEl.textContent = selected.label;
     if (amountEl) amountEl.textContent = selected.amount;
+    if (cartSummaryEl) cartSummaryEl.textContent = 'No cart items found. Choose a coaching package below.';
   };
 
   packageEl?.addEventListener('change', syncSummary);
@@ -474,12 +509,18 @@ function wireStripeCheckoutForm() {
     if (statusEl) statusEl.textContent = 'Creating secure Stripe Checkout...';
 
     try {
+      const items = checkoutItems();
+      if (hasCartItems && items.some(item => !item.productKey)) {
+        throw new Error('One or more cart items is missing secure checkout data. Please remove it and add it again.');
+      }
+
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: form.email.value,
-          package: packageEl.value
+          package: packageEl?.value,
+          items: hasCartItems ? items : undefined
         })
       });
       const data = await response.json();
@@ -565,6 +606,10 @@ window.addEventListener('scroll', () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadSharedPartials();
+
+  if (window.location.pathname.endsWith('payment-success.html')) {
+    saveCart([]);
+  }
 
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const initialTarget = document.getElementById('page-' + currentPageName()) || document.querySelector('.page');
