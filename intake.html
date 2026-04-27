@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.png" type="image/png">
 <title>Client Intake | CM Strength</title>
 <meta name="description" content="CM Strength comprehensive client intake assessment for coaching clients.">
+<link rel="canonical" href="https://www.cmstrength.cc/intake.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Client Intake | CM Strength">
+<meta property="og:description" content="CM Strength comprehensive client intake assessment for coaching clients.">
+<meta property="og:url" content="https://www.cmstrength.cc/intake.html">
+<meta property="og:image" content="https://www.cmstrength.cc/assets/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Client Intake | CM Strength">
+<meta name="twitter:description" content="CM Strength comprehensive client intake assessment for coaching clients.">
+<meta name="twitter:image" content="https://www.cmstrength.cc/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -30,7 +41,9 @@
     <div class="section-inner">
       <p class="intro-copy">Please answer all questions with the utmost honesty and detail. This information is mandatory and confidential, as it forms the scientific basis for designing a safe, effective, and highly personalized training program.</p>
 
-      <form class="form-grid intake-form" id="intakeForm" action="mailto:coach.cmstrength@gmail.com" method="post" enctype="text/plain">
+      <form class="form-grid intake-form" id="intakeForm" action="/api/form-submit" method="post">
+        <input type="hidden" name="formType" value="intake">
+        <input class="form-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="intake-section form-field full">
           <h2>Health & Safety</h2>
         </div>
@@ -127,6 +140,7 @@
             <span>Send Intake Form</span>
             <span class="btn-arrow">→</span>
           </button>
+          <p class="form-status" id="intakeFormStatus" role="status" aria-live="polite"></p>
         </div>
       </form>
     </div>

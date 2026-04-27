@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.png" type="image/png">
 <title>Contact | CM Strength</title>
 <meta name="description" content="Contact CM Strength about coaching, PDF programs, body profile preparation, or training support in Korea.">
+<link rel="canonical" href="https://www.cmstrength.cc/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact | CM Strength">
+<meta property="og:description" content="Contact CM Strength about coaching, PDF programs, body profile preparation, or training support in Korea.">
+<meta property="og:url" content="https://www.cmstrength.cc/contact.html">
+<meta property="og:image" content="https://www.cmstrength.cc/assets/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact | CM Strength">
+<meta name="twitter:description" content="Contact CM Strength about coaching, PDF programs, body profile preparation, or training support in Korea.">
+<meta name="twitter:image" content="https://www.cmstrength.cc/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -57,7 +68,9 @@
 
         <div class="reveal-right">
           <div class="section-label"><span class="gold-line"></span><span data-en="Inquiry Form" data-ko="문의 양식">Inquiry Form</span></div>
-          <form class="form-grid" id="contactForm" action="mailto:coach.cmstrength@gmail.com" method="post" enctype="text/plain">
+          <form class="form-grid" id="contactForm" action="/api/form-submit" method="post">
+            <input type="hidden" name="formType" value="contact">
+            <input class="form-honeypot" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="form-field">
               <label class="form-label" for="contactName" data-en="Full Name" data-ko="성함">Full Name</label>
               <input class="form-input" id="contactName" name="name" type="text" autocomplete="name" required data-placeholder-en="Your name" data-placeholder-ko="성함">
@@ -97,6 +110,7 @@
                 <span data-en="Send Message" data-ko="메시지 전송">Send Message</span>
                 <span class="btn-arrow">→</span>
               </button>
+              <p class="form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
             </div>
           </form>
         </div>

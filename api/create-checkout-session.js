@@ -1,7 +1,7 @@
-const Stripe = require('stripe');
 const { getProduct } = require('./_lib/products');
+const { getStripe } = require('./_lib/stripe');
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_missing');
+const stripe = getStripe();
 
 const PACKAGES = {
   virtual: {
@@ -57,6 +57,31 @@ function buildCheckoutItems(body) {
   });
 }
 
+function normalizeBaseUrl(url) {
+  const fallback = 'https://cmstrength.cc';
+  const value = String(url || '').trim();
+  if (!value) return fallback;
+
+  try {
+    const parsed = new URL(value.startsWith('http') ? value : `https://${value}`);
+    return parsed.origin;
+  } catch {
+    return fallback;
+  }
+}
+
+function getCheckoutBaseUrl(req) {
+  if (process.env.SITE_URL) return normalizeBaseUrl(process.env.SITE_URL);
+  if (process.env.NEXT_PUBLIC_APP_URL) return normalizeBaseUrl(process.env.NEXT_PUBLIC_APP_URL);
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return normalizeBaseUrl(process.env.VERCEL_PROJECT_PRODUCTION_URL);
+  }
+
+  const host = req.headers['x-forwarded-host'] || req.headers.host;
+  const proto = req.headers['x-forwarded-proto'] || 'https';
+  return normalizeBaseUrl(host ? `${proto}://${host}` : '');
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -70,12 +95,13 @@ module.exports = async function handler(req, res) {
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
     const checkoutItems = buildCheckoutItems(body);
-    const origin = req.headers.origin || `https://${req.headers.host}`;
+    const baseUrl = getCheckoutBaseUrl(req);
     const productKeys = checkoutItems.map(item => item.productKey);
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer_email: body.email || undefined,
+      allow_promotion_codes: true,
       line_items: checkoutItems.map(item => ({
         quantity: item.quantity,
         price_data: {
@@ -91,8 +117,8 @@ module.exports = async function handler(req, res) {
         has_pdfs: checkoutItems.some(item => item.product.type === 'pdf') ? 'true' : 'false',
         source: Array.isArray(body.items) && body.items.length ? 'cm-strength-cart' : 'cm-strength-payment-page'
       },
-      success_url: `${origin}/payment-success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/payment.html`
+      success_url: `${baseUrl}/payment-success.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/payment.html`
     });
 
     return res.status(200).json({ url: session.url });

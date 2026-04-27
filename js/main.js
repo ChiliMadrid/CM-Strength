@@ -349,7 +349,7 @@ async function loadSharedPartials() {
 
 function initSharedAssetPaths() {
   document.querySelectorAll('.brand-logo-img, .footer-logo-img').forEach(img => {
-    img.setAttribute('src', sitePath('assets/mainlogo.png'));
+    img.setAttribute('src', sitePath('assets/mainlogo-420.webp'));
   });
 }
 
@@ -420,21 +420,9 @@ function wireContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault();
-    const data = new FormData(form);
-    const subject = encodeURIComponent('CM Strength coaching inquiry');
-    const body = encodeURIComponent([
-      `Name: ${data.get('name') || ''}`,
-      `Email: ${data.get('email') || ''}`,
-      `Phone / KakaoTalk: ${data.get('contact') || ''}`,
-      `Financial readiness: ${data.get('financialReadiness') || ''}`,
-      `Stage of hiring: ${data.get('stageOfHiring') || ''}`,
-      '',
-      'Message:',
-      data.get('message') || ''
-    ].join('\n'));
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    await submitSiteForm(form, 'contact', 'contactFormStatus');
   });
 }
 
@@ -442,20 +430,58 @@ function wireIntakeForm() {
   const form = document.getElementById('intakeForm');
   if (!form) return;
 
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault();
-    const data = new FormData(form);
-    const lines = ['Comprehensive Client Intake Assessment', ''];
-    for (const [key, value] of data.entries()) {
-      lines.push(`${key}: ${value || ''}`);
+    const ok = await submitSiteForm(form, 'intake', 'intakeFormStatus');
+    if (ok) {
+      setTimeout(() => {
+        window.location.href = sitePath('payment.html');
+      }, 1200);
     }
-    const subject = encodeURIComponent('CM Strength client intake form');
-    const body = encodeURIComponent(lines.join('\n'));
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setTimeout(() => {
-      window.location.href = sitePath('payment.html');
-    }, 900);
   });
+}
+
+async function submitSiteForm(form, formType, statusId) {
+  const statusEl = document.getElementById(statusId);
+  const submitButton = form.querySelector('button[type="submit"]');
+  const data = new FormData(form);
+  const fields = {};
+
+  data.set('formType', formType);
+  for (const [key, value] of data.entries()) {
+    fields[key] = value;
+  }
+
+  if (statusEl) {
+    statusEl.classList.remove('is-error');
+    statusEl.textContent = formType === 'intake' ? 'Sending intake securely...' : 'Sending message...';
+  }
+  if (submitButton) submitButton.disabled = true;
+
+  try {
+    const response = await fetch('/api/form-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ formType, fields })
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) throw new Error(result.error || 'Unable to send right now.');
+
+    if (statusEl) {
+      statusEl.textContent = formType === 'intake'
+        ? 'Intake sent. Redirecting to checkout...'
+        : 'Message sent. I will reply as soon as possible.';
+    }
+    form.reset();
+    return true;
+  } catch (error) {
+    if (statusEl) {
+      statusEl.classList.add('is-error');
+      statusEl.textContent = `${error.message} You can also email ${CONTACT_EMAIL}.`;
+    }
+    if (submitButton) submitButton.disabled = false;
+    return false;
+  }
 }
 
 function wireStripeCheckoutForm() {
@@ -463,12 +489,11 @@ function wireStripeCheckoutForm() {
   if (!form) return;
 
   const packageEl = document.getElementById('paymentPackage');
+  const submitButton = form.querySelector('button[type="submit"]');
   const serviceEl = document.getElementById('paymentServiceLabel');
   const amountEl = document.getElementById('paymentAmountLabel');
   const statusEl = document.getElementById('paymentStatus');
   const cartSummaryEl = document.getElementById('paymentCartSummary');
-  const cartItems = getCart();
-  const hasCartItems = cartItems.length > 0;
 
   const checkoutItems = () => getCart().map(item => ({
     productKey: item.productKey,
@@ -477,6 +502,9 @@ function wireStripeCheckoutForm() {
   }));
 
   const syncSummary = () => {
+    const cartItems = getCart();
+    const hasCartItems = cartItems.length > 0;
+
     if (hasCartItems) {
       const total = cartItems.reduce((sum, item) => sum + Number(item.price || 0), 0);
       if (serviceEl) serviceEl.textContent = `${cartItems.length} cart item${cartItems.length === 1 ? '' : 's'}`;
@@ -499,6 +527,7 @@ function wireStripeCheckoutForm() {
     const selected = PAYMENT_PACKAGES[packageEl?.value] || PAYMENT_PACKAGES['coaching-virtual'];
     if (serviceEl) serviceEl.textContent = selected.label;
     if (amountEl) amountEl.textContent = selected.amount;
+    if (packageEl) packageEl.closest('.form-field')?.classList.remove('is-hidden');
     if (cartSummaryEl) cartSummaryEl.textContent = 'No cart items found. Choose a coaching package below.';
   };
 
@@ -507,10 +536,12 @@ function wireStripeCheckoutForm() {
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
+    const items = checkoutItems();
+    const hasCartItems = items.length > 0;
     if (statusEl) statusEl.textContent = 'Creating secure Stripe Checkout...';
+    if (submitButton) submitButton.disabled = true;
 
     try {
-      const items = checkoutItems();
       if (hasCartItems && items.some(item => !item.productKey)) {
         throw new Error('One or more cart items is missing secure checkout data. Please remove it and add it again.');
       }
@@ -529,6 +560,7 @@ function wireStripeCheckoutForm() {
       window.location.href = data.url;
     } catch (error) {
       if (statusEl) statusEl.textContent = error.message;
+      if (submitButton) submitButton.disabled = false;
     }
   });
 }

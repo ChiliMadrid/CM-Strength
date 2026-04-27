@@ -27,10 +27,12 @@ The site uses Vercel Serverless Functions for Stripe Checkout and PDF delivery.
 
 Required Vercel environment variables:
 
+- `SITE_URL`: Production site origin, for example `https://cmstrength.cc`. Checkout success and cancel URLs use this value.
 - `STRIPE_SECRET_KEY`: Stripe secret key.
 - `STRIPE_WEBHOOK_SECRET`: Signing secret for the Stripe webhook endpoint.
 - `RESEND_API_KEY`: Resend API key for PDF email delivery.
 - `RESEND_FROM_EMAIL`: Verified Resend sender, for example `CM Strength <programs@yourdomain.com>`. Do not use a Gmail address here unless Resend explicitly verifies it as a sender.
+  In the Vercel dashboard, enter this value without wrapping quotes.
 - `RESEND_REPLY_TO_EMAIL`: Optional reply-to email. Defaults to `SITE_OWNER_EMAIL`, then `coach.cmstrength@gmail.com`.
 - `SITE_OWNER_EMAIL`: Optional BCC/admin copy email. Defaults to `coach.cmstrength@gmail.com` in the webhook code.
 

@@ -1270,6 +1270,9 @@ footer {
   gap: 16px;
 }
 .payment-status { min-height: 1.6em; color: var(--gold); font-size: 0.82rem; }
+.form-status { min-height: 1.6em; margin: 12px 0 0; color: var(--gold); font-size: 0.82rem; }
+.form-status.is-error { color: #ff8f8f; }
+.form-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 .payment-confirmation {
   width: min(760px, 100%);
   background: var(--surface);

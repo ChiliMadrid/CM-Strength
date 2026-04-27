@@ -1,7 +1,7 @@
-const Stripe = require('stripe');
 const { deliverSessionPdfs } = require('./_lib/pdf-delivery');
+const { getStripe } = require('./_lib/stripe');
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_missing');
+const stripe = getStripe();
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
