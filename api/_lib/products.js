@@ -36,6 +36,12 @@ const PDF_PRODUCTS = {
     amount: 5000,
     filename: 'Lotus.pdf'
   },
+  'pdf-total-war-en': {
+    name: 'Total War - English PDF',
+    type: 'pdf',
+    amount: 5000,
+    filename: 'Total War.pdf'
+  },
   'pdf-dynasty-en': {
     name: 'Dynasty - English PDF',
     type: 'pdf',
