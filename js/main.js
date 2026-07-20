@@ -1,6 +1,6 @@
 // Language system
 const LANG_KEY = 'cmStrengthLanguage';
-let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+let currentLang = localStorage.getItem(LANG_KEY) || 'ko';
 
 function toggleLang() {
   currentLang = currentLang === 'en' ? 'ko' : 'en';
@@ -53,10 +53,12 @@ const PAGE_ROUTES = {
 };
 
 const PAYMENT_PACKAGES = {
-  'coaching-virtual': { label: { en: 'Virtual Coaching', ko: '버추얼 코칭' }, amount: '$150' },
-  'coaching-body-profile': { label: { en: 'Body Profile', ko: '바디프로필' }, amount: '$300' },
-  'coaching-hybrid': { label: { en: 'Hybrid Coaching', ko: '하이브리드 코칭' }, amount: '$450' },
-  'coaching-s-tier': { label: { en: 'S-Tier', ko: 'S-Tier' }, amount: '$600' }
+  'coaching-virtual': { label: { en: 'Virtual Coaching', ko: '버추얼 코칭' }, amount: '₩200,000' },
+  'coaching-body-profile': { label: { en: 'Body Profile', ko: '바디프로필' }, amount: '₩400,000' },
+  'coaching-hybrid': { label: { en: 'Hybrid Coaching', ko: '하이브리드 코칭' }, amount: '₩600,000' },
+  'coaching-s-tier': { label: { en: 'S-Tier', ko: 'S-Tier' }, amount: '₩800,000' },
+  'coaching-in-person-single': { label: { en: '1:1 In-Person Session', ko: '1:1 대면 트레이닝 1회' }, amount: '₩60,000' },
+  'coaching-in-person-10': { label: { en: '10 In-Person Sessions', ko: '1:1 대면 트레이닝 10회' }, amount: '₩500,000' }
 };
 
 function currentPageName() {
@@ -98,17 +100,16 @@ function parseWon(value) {
 }
 
 function formatWon(value) {
-  return 'KRW ' + Number(value || 0).toLocaleString('ko-KR');
+  return '₩' + Number(value || 0).toLocaleString('ko-KR');
 }
 
 function currencyForItem(item) {
   if (item.currency) return item.currency;
-  if (item.type === 'Coaching' || item.type === 'PDF Program') return 'USD';
   return 'KRW';
 }
 
 function currencyFromPrice(price, type) {
-  if (String(price || '').trim().startsWith('$') || type === 'Coaching' || type === 'PDF Program') return 'USD';
+  if (String(price || '').trim().startsWith('$')) return 'USD';
   return 'KRW';
 }
 
@@ -289,14 +290,14 @@ function updateCalc() {
   const selection = getPaidInFullSelection();
   if (!selection || !totalEl || !discEl || !monthlyEl) return;
 
-  totalEl.textContent = formatMoney(selection.total, 'USD');
+  totalEl.textContent = formatMoney(selection.total, 'KRW');
 
   if (selection.discount > 0) {
     discEl.classList.remove('is-hidden');
     discEl.textContent = (selection.discount * 100) + '% OFF APPLIED';
     monthlyEl.textContent = currentLang === 'ko'
-      ? `${formatMoney(selection.rate, 'USD')}/월 x ${selection.months}개월`
-      : `${formatMoney(selection.rate, 'USD')}/month x ${selection.months} months`;
+      ? `${formatMoney(selection.rate, 'KRW')}/월 x ${selection.months}개월`
+      : `${formatMoney(selection.rate, 'KRW')}/month x ${selection.months} months`;
   } else {
     discEl.classList.add('is-hidden');
     monthlyEl.textContent = currentLang === 'ko' ? '표준 월 요금' : 'Standard monthly rate';
@@ -307,7 +308,7 @@ function addPaidInFullToCart() {
   const selection = getPaidInFullSelection();
   if (!selection) return;
   const monthLabel = currentLang === 'ko' ? `${selection.months}개월` : `${selection.months} month${selection.months === 1 ? '' : 's'}`;
-  addToCart(`${selection.programName} - Paid in Full (${monthLabel})`, '$' + selection.total, 'Coaching', selection.productKey, selection.months);
+  addToCart(`${selection.programName} - Paid in Full (${monthLabel})`, '₩' + selection.total, 'Coaching', selection.productKey, selection.months);
 }
 
 // Radio buttons
@@ -541,7 +542,7 @@ function wireStripeCheckoutForm() {
     if (hasCartItems) {
       const total = cartItems.reduce((sum, item) => sum + Number(item.price || 0), 0);
       if (serviceEl) serviceEl.textContent = `${cartItems.length} cart item${cartItems.length === 1 ? '' : 's'}`;
-      if (amountEl) amountEl.textContent = formatMoney(total, 'USD');
+      if (amountEl) amountEl.textContent = formatMoney(total, 'KRW');
       if (packageEl) packageEl.closest('.form-field')?.classList.add('is-hidden');
       if (cartSummaryEl) {
         cartSummaryEl.replaceChildren(...cartItems.map(item => {
@@ -549,7 +550,7 @@ function wireStripeCheckoutForm() {
           const name = document.createElement('span');
           const price = document.createElement('strong');
           name.textContent = item.name;
-          price.textContent = formatMoney(item.price, 'USD');
+          price.textContent = formatMoney(item.price, 'KRW');
           row.append(name, price);
           return row;
         }));

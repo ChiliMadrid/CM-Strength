@@ -27,6 +27,18 @@ const PACKAGES = {
   },
   'coaching-s-tier': {
     productKey: 'coaching-s-tier'
+  },
+  'in-person-single': {
+    productKey: 'coaching-in-person-single'
+  },
+  'coaching-in-person-single': {
+    productKey: 'coaching-in-person-single'
+  },
+  'in-person-10': {
+    productKey: 'coaching-in-person-10'
+  },
+  'coaching-in-person-10': {
+    productKey: 'coaching-in-person-10'
   }
 };
 
@@ -105,7 +117,7 @@ module.exports = async function handler(req, res) {
       line_items: checkoutItems.map(item => ({
         quantity: item.quantity,
         price_data: {
-          currency: 'usd',
+          currency: 'krw',
           product_data: {
             name: `CM Strength - ${item.name}`
           },
