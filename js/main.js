@@ -61,6 +61,20 @@ const PAYMENT_PACKAGES = {
   'coaching-in-person-10': { label: { en: '10 In-Person Sessions', ko: '1:1 대면 트레이닝 10회' }, amount: '₩500,000' }
 };
 
+const PRODUCT_PRICES_KRW = {
+  'coaching-virtual': 200000,
+  'coaching-body-profile': 400000,
+  'coaching-hybrid': 600000,
+  'coaching-s-tier': 800000,
+  'coaching-in-person-single': 60000,
+  'coaching-in-person-10': 500000,
+  'pdf-first-flame-en': 60000,
+  'pdf-lotus-en': 75000,
+  'pdf-total-war-en': 75000,
+  'pdf-dynasty-en': 100000,
+  'pdf-hell-joseon-en': 75000
+};
+
 function currentPageName() {
   return document.body.dataset.page || document.querySelector('.page.active')?.id.replace('page-', '') || 'home';
 }
@@ -128,7 +142,19 @@ function localizeCartType(type) {
 function getCart() {
   try {
     const items = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
-    return Array.isArray(items) ? items : [];
+    if (!Array.isArray(items)) return [];
+
+    const migrated = items.map(item => {
+      const currentPrice = PRODUCT_PRICES_KRW[item.productKey];
+      return currentPrice
+        ? { ...item, price: currentPrice, currency: 'KRW' }
+        : item;
+    });
+
+    if (JSON.stringify(migrated) !== JSON.stringify(items)) {
+      localStorage.setItem(CART_KEY, JSON.stringify(migrated));
+    }
+    return migrated;
   } catch {
     localStorage.setItem(CART_KEY, '[]');
     return [];
