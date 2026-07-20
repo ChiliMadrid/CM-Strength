@@ -9,12 +9,12 @@ const COACHING_PRODUCTS = {
   'coaching-body-profile': {
     name: 'Body Profile',
     type: 'coaching',
-    amount: 6000000
+    amount: 400000
   },
   'coaching-hybrid': {
     name: 'Hybrid Coaching',
     type: 'coaching',
-    amount: 8000000
+    amount: 600000
   },
   'coaching-s-tier': {
     name: 'S-Tier',
@@ -43,13 +43,13 @@ const PDF_PRODUCTS = {
   'pdf-lotus-en': {
     name: 'Lotus V2 - English PDF',
     type: 'pdf',
-    amount: 1000000,
+    amount: 75000,
     filename: 'Lotus.pdf'
   },
   'pdf-total-war-en': {
     name: 'Total War - English PDF',
     type: 'pdf',
-    amount: 1000000,
+    amount: 75000,
     filename: 'Total War.pdf'
   },
   'pdf-dynasty-en': {
@@ -61,7 +61,7 @@ const PDF_PRODUCTS = {
   'pdf-hell-joseon-en': {
     name: 'Hell Joseon - English PDF',
     type: 'pdf',
-    amount: 1000000,
+    amount: 75000,
     filename: 'Hell Joseon.pdf'
   }
 };
