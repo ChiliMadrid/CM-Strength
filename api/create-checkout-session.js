@@ -3,49 +3,25 @@ const { getStripe } = require('./_lib/stripe');
 
 const stripe = getStripe();
 
-const PACKAGES = {
-  virtual: {
-    productKey: 'coaching-virtual'
-  },
-  'coaching-virtual': {
-    productKey: 'coaching-virtual'
-  },
-  'body-profile': {
-    productKey: 'coaching-body-profile'
-  },
-  'coaching-body-profile': {
-    productKey: 'coaching-body-profile'
-  },
-  hybrid: {
-    productKey: 'coaching-hybrid'
-  },
-  'coaching-hybrid': {
-    productKey: 'coaching-hybrid'
-  },
-  's-tier': {
-    productKey: 'coaching-s-tier'
-  },
-  'coaching-s-tier': {
-    productKey: 'coaching-s-tier'
-  },
-  'in-person-single': {
-    productKey: 'coaching-in-person-single'
-  },
-  'coaching-in-person-single': {
-    productKey: 'coaching-in-person-single'
-  },
-  'in-person-10': {
-    productKey: 'coaching-in-person-10'
-  },
-  'coaching-in-person-10': {
-    productKey: 'coaching-in-person-10'
-  }
+const PACKAGE_PRODUCT_KEYS = {
+  virtual: 'coaching-virtual',
+  'coaching-virtual': 'coaching-virtual',
+  'body-profile': 'coaching-body-profile',
+  'coaching-body-profile': 'coaching-body-profile',
+  hybrid: 'coaching-hybrid',
+  'coaching-hybrid': 'coaching-hybrid',
+  's-tier': 'coaching-s-tier',
+  'coaching-s-tier': 'coaching-s-tier',
+  'in-person-single': 'coaching-in-person-single',
+  'coaching-in-person-single': 'coaching-in-person-single',
+  'in-person-10': 'coaching-in-person-10',
+  'coaching-in-person-10': 'coaching-in-person-10'
 };
 
 function buildCheckoutItems(body) {
   const rawItems = Array.isArray(body.items) && body.items.length
     ? body.items
-    : [{ productKey: PACKAGES[body.package]?.productKey || PACKAGES.virtual.productKey, quantity: 1 }];
+    : [{ productKey: PACKAGE_PRODUCT_KEYS[body.package] || PACKAGE_PRODUCT_KEYS.virtual, quantity: 1 }];
 
   return rawItems.map(item => {
     const product = getProduct(item.productKey);
@@ -117,7 +93,7 @@ module.exports = async function handler(req, res) {
       line_items: checkoutItems.map(item => ({
         quantity: item.quantity,
         price_data: {
-          currency: 'krw',
+          currency: item.product.currency,
           product_data: {
             name: `CM Strength - ${item.name}`
           },
