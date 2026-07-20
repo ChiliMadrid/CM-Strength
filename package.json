@@ -5,5 +5,8 @@
   "dependencies": {
     "raw-body": "^3.0.0",
     "stripe": "^20.1.0"
+  },
+  "scripts": {
+    "test": "node --test"
   }
 }
