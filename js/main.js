@@ -1,13 +1,11 @@
 // Language system
 const LANG_KEY = 'cmStrengthLanguage';
-let currentLang = localStorage.getItem(LANG_KEY) || 'ko';
+let currentLang = localStorage.getItem(LANG_KEY) === 'en' ? 'en' : 'ko';
 
 function toggleLang() {
   currentLang = currentLang === 'en' ? 'ko' : 'en';
   localStorage.setItem(LANG_KEY, currentLang);
   applyLang();
-  updateCalc();
-  renderCart();
 }
 
 function applyLang() {
@@ -31,6 +29,16 @@ function applyLang() {
     const txt = el.getAttribute('data-' + currentLang);
     if (txt) el.textContent = txt;
   });
+  ['alt', 'aria-label', 'content'].forEach(attribute => {
+    document.querySelectorAll(`[data-${attribute}-en]`).forEach(el => {
+      el.setAttribute(attribute, el.getAttribute(`data-${attribute}-${currentLang}`));
+    });
+  });
+  const locale = document.querySelector('meta[property="og:locale"]');
+  if (locale) locale.content = currentLang === 'ko' ? 'ko_KR' : 'en_US';
+  updateCalc();
+  renderCart();
+  document.dispatchEvent(new Event('languagechange'));
 }
 
 // Navigation
@@ -53,7 +61,7 @@ const PAGE_ROUTES = {
 };
 
 const PAYMENT_PACKAGES = {
-  'coaching-virtual': { label: { en: 'Virtual Coaching', ko: '버추얼 코칭' }, amount: '₩200,000' },
+  'coaching-virtual': { label: { en: 'Virtual Coaching', ko: '비대면 코칭' }, amount: '₩200,000' },
   'coaching-body-profile': { label: { en: 'Body Profile', ko: '바디프로필' }, amount: '₩400,000' },
   'coaching-hybrid': { label: { en: 'Hybrid Coaching', ko: '하이브리드 코칭' }, amount: '₩600,000' },
   'coaching-s-tier': { label: { en: 'S-Tier', ko: 'S-Tier' }, amount: '₩800,000' },
@@ -94,7 +102,7 @@ function navigate(page) {
   }
 
   setActiveNav();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   setTimeout(triggerReveal, 100);
   renderCart();
 }
@@ -139,6 +147,27 @@ function localizeCartType(type) {
   return type || '';
 }
 
+function localizeCartName(item) {
+  const pdfNames = {
+    'pdf-first-flame-en': 'The First Flame', 'pdf-lotus-en': 'Lotus V2',
+    'pdf-total-war-en': 'Total War', 'pdf-dynasty-en': 'Dynasty', 'pdf-hell-joseon-en': 'Hell Joseon'
+  };
+  const name = PAYMENT_PACKAGES[item.productKey]?.label[currentLang]
+    || (pdfNames[item.productKey] ? `${pdfNames[item.productKey]} - ${currentLang === 'ko' ? '영문 PDF' : 'English PDF'}` : item.name);
+  const blocks = Number(item.months || 1); // Legacy storage key; each unit is a four-week block.
+  return blocks > 1
+    ? `${name} - ${currentLang === 'ko' ? `4주 × ${blocks}회 선납` : `${blocks} four-week blocks, paid in full`}`
+    : name;
+}
+
+function priceForCartItem(item) {
+  const rate = PRODUCT_PRICES_KRW[item.productKey];
+  if (!rate) return item.price;
+  const blocks = item.type === 'Coaching' ? Number(item.months || 1) : 1;
+  const discount = blocks >= 12 ? 0.10 : blocks >= 6 ? 0.05 : 0;
+  return Math.round(rate * blocks * (1 - discount));
+}
+
 function getCart() {
   try {
     const items = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
@@ -147,7 +176,7 @@ function getCart() {
     const migrated = items.map(item => {
       const currentPrice = PRODUCT_PRICES_KRW[item.productKey];
       return currentPrice
-        ? { ...item, price: currentPrice, currency: 'KRW' }
+        ? { ...item, price: priceForCartItem(item), currency: 'KRW' }
         : item;
     });
 
@@ -167,7 +196,7 @@ function saveCart(items) {
 
 function addToCart(name, price, type, productKey, months) {
   if (type === 'PDF Program' && !productKey) {
-    alert('This PDF is not configured for automatic delivery yet. Please choose the English PDF option.');
+    alert(currentLang === 'ko' ? '이 PDF는 아직 판매 준비 중입니다. 영문 PDF를 선택해 주세요.' : 'This PDF is not available yet. Please choose the English PDF.');
     return;
   }
 
@@ -221,7 +250,7 @@ function renderCart() {
       const remove = document.createElement('button');
       const locked = item.type === 'PDF Program' ? document.createElement('span') : null;
       const itemCurrency = currencyForItem(item);
-      name.textContent = item.name;
+      name.textContent = localizeCartName(item);
       type.textContent = localizeCartType(item.type);
       price.textContent = formatMoney(item.price, itemCurrency);
       if (locked) {
@@ -231,7 +260,7 @@ function renderCart() {
       remove.className = 'cart-remove';
       remove.type = 'button';
       remove.textContent = 'x';
-      remove.setAttribute('aria-label', `Remove ${item.name}`);
+      remove.setAttribute('aria-label', currentLang === 'ko' ? `${localizeCartName(item)} 삭제` : `Remove ${localizeCartName(item)}`);
       remove.addEventListener('click', () => removeFromCart(item.id));
       details.append(name, document.createElement('br'), type);
       actions.className = 'cart-item-actions';
@@ -247,8 +276,7 @@ function checkoutCart() {
   const items = getCart();
   if (!items.length) return;
 
-  const hasCoaching = items.some(item => item.type === 'Coaching');
-  window.location.href = sitePath(hasCoaching ? 'intake.html' : 'payment.html');
+  window.location.href = sitePath('payment.html');
 }
 
 function wireCart() {
@@ -320,20 +348,20 @@ function updateCalc() {
 
   if (selection.discount > 0) {
     discEl.classList.remove('is-hidden');
-    discEl.textContent = (selection.discount * 100) + '% OFF APPLIED';
+    discEl.textContent = (selection.discount * 100) + (currentLang === 'ko' ? '% 할인 적용' : '% OFF APPLIED');
     monthlyEl.textContent = currentLang === 'ko'
-      ? `${formatMoney(selection.rate, 'KRW')}/월 x ${selection.months}개월`
-      : `${formatMoney(selection.rate, 'KRW')}/month x ${selection.months} months`;
+      ? `4주당 ${formatMoney(selection.rate, 'KRW')} × ${selection.months}회 (${selection.months * 4}주)`
+      : `${formatMoney(selection.rate, 'KRW')} per 4 weeks × ${selection.months} blocks (${selection.months * 4} weeks)`;
   } else {
     discEl.classList.add('is-hidden');
-    monthlyEl.textContent = currentLang === 'ko' ? '표준 월 요금' : 'Standard monthly rate';
+    monthlyEl.textContent = currentLang === 'ko' ? `4주 × ${selection.months}회 (${selection.months * 4}주)` : `${selection.months} four-week block${selection.months === 1 ? '' : 's'} (${selection.months * 4} weeks)`;
   }
 }
 
 function addPaidInFullToCart() {
   const selection = getPaidInFullSelection();
   if (!selection) return;
-  const monthLabel = currentLang === 'ko' ? `${selection.months}개월` : `${selection.months} month${selection.months === 1 ? '' : 's'}`;
+  const monthLabel = currentLang === 'ko' ? `4주 × ${selection.months}회` : `${selection.months} four-week blocks`;
   addToCart(`${selection.programName} - Paid in Full (${monthLabel})`, '₩' + selection.total, 'Coaching', selection.productKey, selection.months);
 }
 
@@ -459,12 +487,7 @@ function wireIntakeForm() {
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    const ok = await submitSiteForm(form, 'intake', 'intakeFormStatus');
-    if (ok) {
-      setTimeout(() => {
-        window.location.href = sitePath('payment.html');
-      }, 1200);
-    }
+    await submitSiteForm(form, 'intake', 'intakeFormStatus');
   });
 }
 
@@ -481,7 +504,7 @@ async function submitSiteForm(form, formType, statusId) {
 
   if (statusEl) {
     statusEl.classList.remove('is-error');
-    statusEl.textContent = localizedFormMessage(formType === 'intake' ? 'intakeSending' : 'contactSending');
+    setFormStatus(statusEl, formType === 'intake' ? 'intakeSending' : 'contactSending');
   }
   if (submitButton) submitButton.disabled = true;
 
@@ -495,19 +518,28 @@ async function submitSiteForm(form, formType, statusId) {
     if (!response.ok || !result.ok) throw new Error(result.error || 'Unable to send right now.');
 
     if (statusEl) {
-      statusEl.textContent = localizedFormMessage(formType === 'intake' ? 'intakeSent' : 'contactSent');
+      setFormStatus(statusEl, formType === 'intake' ? 'intakeSent' : 'contactSent');
     }
     form.reset();
     return true;
   } catch (error) {
     if (statusEl) {
       statusEl.classList.add('is-error');
-      statusEl.textContent = `${error.message} ${localizedFormMessage('emailFallback')}`;
+      setFormStatus(statusEl, 'sendFailed');
     }
     if (submitButton) submitButton.disabled = false;
     return false;
   }
 }
+
+function setFormStatus(el, key) {
+  el.dataset.formMessageKey = key;
+  el.textContent = localizedFormMessage(key) + (key === 'sendFailed' ? ` ${localizedFormMessage('emailFallback')}` : '');
+}
+
+document.addEventListener('languagechange', () => {
+  document.querySelectorAll('[data-form-message-key]').forEach(el => setFormStatus(el, el.dataset.formMessageKey));
+});
 
 function localizedFormMessage(key) {
   const messages = {
@@ -524,9 +556,10 @@ function localizedFormMessage(key) {
       ko: '메시지가 전송되었습니다. 가능한 한 빨리 답변드리겠습니다.'
     },
     intakeSent: {
-      en: 'Intake sent. Redirecting to checkout...',
-      ko: '인테이크 양식이 전송되었습니다. 결제 페이지로 이동합니다...'
+      en: 'Intake received. Your coach will review it and contact you before training begins.',
+      ko: '사전 설문이 접수되었습니다. 코치가 내용을 검토한 뒤 훈련 시작 전에 연락드립니다.'
     },
+    sendFailed: { en: 'Your form could not be sent. Please try again.', ko: '양식을 보내지 못했습니다. 다시 시도해 주세요.' },
     emailFallback: {
       en: `You can also email ${CONTACT_EMAIL}.`,
       ko: `${CONTACT_EMAIL}로 직접 이메일을 보내셔도 됩니다.`
@@ -537,9 +570,22 @@ function localizedFormMessage(key) {
 }
 
 function prefillContactMessageFromQuery() {
+  const packageEl = document.getElementById('contactPackage');
+  const packageKey = new URLSearchParams(window.location.search).get('package');
+  if (packageEl && PAYMENT_PACKAGES[packageKey]) packageEl.value = packageKey;
   const messageEl = document.getElementById('contactMessage');
   if (!messageEl || messageEl.value) return;
 
+  if (new URLSearchParams(window.location.search).get('topic') === 'founding-offer') {
+    const messages = { en: 'I would like to ask about the founding member offer, availability, and full terms.', ko: '첫 코칭 고객 특별 혜택의 신청 가능 여부와 자세한 조건을 문의하고 싶습니다.' };
+    let previous = messages[currentLang];
+    messageEl.value = previous;
+    document.addEventListener('languagechange', () => {
+      if (messageEl.value === previous) messageEl.value = messages[currentLang];
+      previous = messages[currentLang];
+    });
+    return;
+  }
   const message = new URLSearchParams(window.location.search).get('message');
   if (message) messageEl.value = message;
 }
@@ -554,6 +600,12 @@ function wireStripeCheckoutForm() {
   const amountEl = document.getElementById('paymentAmountLabel');
   const statusEl = document.getElementById('paymentStatus');
   const cartSummaryEl = document.getElementById('paymentCartSummary');
+  let statusKey = '';
+  const updateStatus = key => {
+    statusKey = key;
+    if (statusEl) statusEl.textContent = localizedPaymentMessage(key);
+  };
+  document.addEventListener('languagechange', () => { if (statusKey) updateStatus(statusKey); });
 
   const checkoutItems = () => getCart().map(item => ({
     productKey: item.productKey,
@@ -567,7 +619,7 @@ function wireStripeCheckoutForm() {
 
     if (hasCartItems) {
       const total = cartItems.reduce((sum, item) => sum + Number(item.price || 0), 0);
-      if (serviceEl) serviceEl.textContent = `${cartItems.length} cart item${cartItems.length === 1 ? '' : 's'}`;
+      if (serviceEl) serviceEl.textContent = currentLang === 'ko' ? `장바구니 상품 ${cartItems.length}개` : `${cartItems.length} cart item${cartItems.length === 1 ? '' : 's'}`;
       if (amountEl) amountEl.textContent = formatMoney(total, 'KRW');
       if (packageEl) packageEl.closest('.form-field')?.classList.add('is-hidden');
       if (cartSummaryEl) {
@@ -575,7 +627,7 @@ function wireStripeCheckoutForm() {
           const row = document.createElement('div');
           const name = document.createElement('span');
           const price = document.createElement('strong');
-          name.textContent = item.name;
+          name.textContent = localizeCartName(item);
           price.textContent = formatMoney(item.price, 'KRW');
           row.append(name, price);
           return row;
@@ -592,13 +644,14 @@ function wireStripeCheckoutForm() {
   };
 
   packageEl?.addEventListener('change', syncSummary);
+  document.addEventListener('languagechange', syncSummary);
   syncSummary();
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
     const items = checkoutItems();
     const hasCartItems = items.length > 0;
-    if (statusEl) statusEl.textContent = localizedPaymentMessage('creatingCheckout');
+    updateStatus('creatingCheckout');
     if (submitButton) submitButton.disabled = true;
 
     try {
@@ -610,16 +663,17 @@ function wireStripeCheckoutForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          email: form.email.value,
+          email: form.elements.namedItem('email').value,
           package: packageEl?.value,
-          items: hasCartItems ? items : undefined
+          items: hasCartItems ? items : undefined,
+          language: currentLang
         })
       });
       const data = await response.json();
       if (!response.ok || !data.url) throw new Error(data.error || localizedPaymentMessage('checkoutUnavailable'));
       window.location.href = data.url;
     } catch (error) {
-      if (statusEl) statusEl.textContent = error.message;
+      updateStatus('checkoutUnavailable');
       if (submitButton) submitButton.disabled = false;
     }
   });
@@ -631,7 +685,7 @@ async function fulfillCheckoutSession() {
 
   const sessionId = new URLSearchParams(window.location.search).get('session_id');
   if (!sessionId) {
-    statusEl.textContent = localizedPaymentMessage('paymentConfirmed');
+    setPaymentStatus('missingSession');
     return;
   }
 
@@ -643,15 +697,29 @@ async function fulfillCheckoutSession() {
     });
     const data = await response.json();
 
-    if (!response.ok) throw new Error(data.error || 'Delivery confirmation is still processing.');
-
-    statusEl.textContent = data.delivered
-      ? localizedPaymentMessage('pdfDeliveryTriggered')
-      : localizedPaymentMessage('coachingNextSteps');
+    if (!response.ok || !data.paid) throw new Error('Payment not verified');
+    saveCart([]);
+    renderCart();
+    document.querySelectorAll('[data-payment-confirmed]').forEach(el => { el.hidden = false; });
+    const onboarding = document.getElementById('coachingOnboarding');
+    if (onboarding) onboarding.hidden = !data.has_coaching;
+    setPaymentStatus(data.delivered ? 'pdfDeliveryTriggered' : 'coachingNextSteps');
   } catch (error) {
-    statusEl.textContent = `${error.message} ${localizedPaymentMessage('deliveryFallback')}`;
+    setPaymentStatus('deliveryFallback');
   }
 }
+
+function setPaymentStatus(key) {
+  const el = document.getElementById('paymentFulfillmentStatus');
+  if (!el) return;
+  el.dataset.messageKey = key;
+  el.textContent = localizedPaymentMessage(key);
+}
+
+document.addEventListener('languagechange', () => {
+  const el = document.getElementById('paymentFulfillmentStatus');
+  if (el?.dataset.messageKey) setPaymentStatus(el.dataset.messageKey);
+});
 
 function localizedPaymentMessage(key) {
   const messages = {
@@ -663,29 +731,29 @@ function localizedPaymentMessage(key) {
       en: 'Creating secure Stripe Checkout...',
       ko: '안전한 Stripe 결제를 생성하는 중...'
     },
-    paymentConfirmed: {
-      en: 'Payment confirmed. If you purchased a PDF, check your email shortly.',
-      ko: '결제가 확인되었습니다. PDF를 구매했다면 곧 이메일을 확인해 주세요.'
+    missingSession: {
+      en: 'No checkout reference was found. Open the confirmation link from your completed Stripe checkout, or contact your coach.',
+      ko: '결제 참조 번호를 찾을 수 없습니다. Stripe 결제 완료 후 표시되는 확인 링크를 열거나 코치에게 문의해 주세요.'
     },
     pdfDeliveryTriggered: {
       en: 'PDF delivery has been triggered. Check your inbox and spam folder.',
       ko: 'PDF 발송이 시작되었습니다. 받은편지함과 스팸함을 확인해 주세요.'
     },
     coachingNextSteps: {
-      en: 'Payment confirmed. Coaching clients will receive next steps by email.',
-      ko: '결제가 확인되었습니다. 코칭 고객은 이메일로 다음 단계 안내를 받게 됩니다.'
+      en: 'Payment confirmed. Complete your coaching intake below before training begins.',
+      ko: '결제가 확인되었습니다. 훈련 시작 전 아래의 코칭 사전 설문을 작성해 주세요.'
     },
     deliveryFallback: {
-      en: 'If your email does not arrive, contact coach.cmstrength@gmail.com with your checkout reference.',
-      ko: '이메일이 도착하지 않으면 결제 참조 번호와 함께 coach.cmstrength@gmail.com으로 연락해 주세요.'
+      en: 'We could not confirm payment or delivery here. If Stripe shows a completed payment, do not pay again. Contact coach.cmstrength@gmail.com with your checkout reference.',
+      ko: '이 페이지에서 결제 또는 발송 상태를 확인하지 못했습니다. Stripe에서 결제가 완료되었다면 다시 결제하지 마세요. 결제 참조 번호와 함께 coach.cmstrength@gmail.com으로 문의해 주세요.'
     },
     missingCartData: {
       en: 'One or more cart items is missing secure checkout data. Please remove it and add it again.',
       ko: '장바구니 항목 중 일부에 안전 결제 정보가 없습니다. 해당 항목을 삭제한 뒤 다시 추가해 주세요.'
     },
     checkoutUnavailable: {
-      en: 'Checkout is not available yet.',
-      ko: '아직 결제를 사용할 수 없습니다.'
+      en: 'Unable to open checkout. Please try again or contact your coach.',
+      ko: '결제 페이지를 열지 못했습니다. 다시 시도하거나 코치에게 문의해 주세요.'
     }
   };
 
@@ -710,7 +778,7 @@ function initFloatingSocials() {
 function initCursor() {
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
-  if (!cursor || !cursorRing || window.matchMedia('(pointer: coarse)').matches) return;
+  if (!cursor || !cursorRing || window.matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches) return;
   const trailDots = Array.from({ length: 6 }, () => {
     const dot = document.createElement('span');
     dot.className = 'cursor-trail';
@@ -768,7 +836,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadSharedPartials();
 
   if (window.location.pathname.endsWith('payment-success.html')) {
-    saveCart([]);
     fulfillCheckoutSession();
   }
 

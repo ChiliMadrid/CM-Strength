@@ -47,3 +47,13 @@ Listen for:
 PDF files are stored under `api/_private/EnglishPDF` so the browser does not receive a public download path. The webhook emails purchased PDFs only after Stripe confirms payment.
 
 The success page also calls `/api/fulfill-checkout-session` with Stripe's `session_id` after redirect. That endpoint retrieves the Checkout Session from Stripe, verifies `payment_status=paid`, and sends the same PDF email as a fallback. Resend idempotency prevents duplicate delivery when both the webhook and success page run.
+
+## Local checks and localization
+
+Run `npm ci` and `npm test` with Node.js 22.13+ (24 LTS recommended). The tests use a simulated DOM and mocked external providers; they do not send email or make purchases.
+
+Visitor-facing HTML uses `data-en` and `data-ko`, with Korean as the static default. Add both translations when changing copy. Use `data-alt-en`/`data-alt-ko`, `data-aria-label-en`/`data-aria-label-ko`, and `data-content-en`/`data-content-ko` for translated attributes. Dynamic messages must update on `languagechange`.
+
+Coaching prices are per four-week block. The legacy `months` field in cart storage and checkout requests counts these blocks. Do not change pricing or session counts while translating copy.
+
+See `docs/website-review.md` for implemented changes and pending content facts, and `docs/pdf-localization/README.md` for the Korean PDF workflow.

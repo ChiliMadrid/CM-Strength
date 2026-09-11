@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon.png" type="image/png">
-<title>Payment Complete | CM Strength</title>
-<meta name="description" content="CM Strength payment confirmation.">
+<title data-en="Checkout Status | CM Strength" data-ko="결제 확인 | CM Strength">결제 확인 | CM Strength</title>
+<meta name="description" content="CM Strength 결제 및 PDF 발송 상태를 확인하세요." data-content-en="CM Strength payment confirmation." data-content-ko="CM Strength 결제 및 PDF 발송 상태를 확인하세요.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://www.cmstrength.cc/payment-success.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Payment Complete | CM Strength">
-<meta property="og:description" content="CM Strength payment confirmation.">
+<meta property="og:title" content="결제 확인 | CM Strength" data-content-en="Checkout Status | CM Strength" data-content-ko="결제 확인 | CM Strength">
+<meta property="og:description" content="CM Strength 결제 및 PDF 발송 상태를 확인하세요." data-content-en="CM Strength payment confirmation." data-content-ko="CM Strength 결제 및 PDF 발송 상태를 확인하세요.">
 <meta property="og:url" content="https://www.cmstrength.cc/payment-success.html">
 <meta property="og:image" content="https://www.cmstrength.cc/assets/cm-strength-google-display.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Payment Complete | CM Strength">
-<meta name="twitter:description" content="CM Strength payment confirmation.">
+<meta name="twitter:title" content="결제 확인 | CM Strength" data-content-en="Checkout Status | CM Strength" data-content-ko="결제 확인 | CM Strength">
+<meta name="twitter:description" content="CM Strength 결제 및 PDF 발송 상태를 확인하세요." data-content-en="CM Strength payment confirmation." data-content-ko="CM Strength 결제 및 PDF 발송 상태를 확인하세요.">
 <meta name="twitter:image" content="https://www.cmstrength.cc/assets/cm-strength-google-display.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,12 +34,13 @@
 <div id="page-payment" class="page active" role="main">
   <section class="payment-page">
     <div class="payment-confirmation">
-      <div class="payment-badge" data-en="Payment complete" data-ko="결제 완료">Payment complete</div>
-      <h1 data-en="You're In" data-ko="신청 완료">You're In</h1>
-      <p data-en="Thank you. Your checkout was completed through Stripe. Coaching clients will receive next-step instructions. PDF purchases are delivered by email after payment is confirmed." data-ko="감사합니다. Stripe를 통해 결제가 완료되었습니다. 코칭 고객은 다음 단계 안내를 받게 되며, PDF 구매는 결제 확인 후 이메일로 전달됩니다.">Thank you. Your checkout was completed through Stripe. Coaching clients will receive next-step instructions. PDF purchases are delivered by email after payment is confirmed.</p>
-      <p class="payment-status" id="paymentFulfillmentStatus" role="status" data-en="Checking delivery status..." data-ko="배송 상태를 확인하는 중...">Checking delivery status...</p>
-      <button class="btn btn-gold" type="button" data-navigate="home">
-        <span data-en="Back Home" data-ko="홈으로 돌아가기">Back Home</span>
+      <div class="payment-badge" data-en="Checkout Status" data-ko="결제 상태">결제 상태</div>
+      <h1 data-en="Confirming Your Checkout" data-ko="결제를 확인하고 있습니다">결제를 확인하고 있습니다</h1>
+      <p data-en="We will confirm your payment with Stripe. Purchased PDFs are emailed after confirmation; coaching clients can then complete their intake." data-ko="Stripe에서 결제 상태를 확인합니다. 결제 확인 후 구매한 PDF가 이메일로 발송되며, 코칭 고객은 사전 설문을 작성할 수 있습니다.">Stripe에서 결제 상태를 확인합니다. 결제 확인 후 구매한 PDF가 이메일로 발송되며, 코칭 고객은 사전 설문을 작성할 수 있습니다.</p>
+      <p class="payment-status" id="paymentFulfillmentStatus" role="status" data-en="Checking delivery status..." data-ko="전달 상태를 확인하는 중...">전달 상태를 확인하는 중...</p>
+      <p data-payment-confirmed hidden data-en="Payment confirmed" data-ko="결제가 확인되었습니다">결제가 확인되었습니다</p><div id="coachingOnboarding" hidden><h2 data-en="Before Your First Session" data-ko="첫 훈련 전 준비">첫 훈련 전 준비</h2><p data-en="Tell your coach about your training history, goals, and health before your first session." data-ko="첫 훈련 전에 운동 이력, 목표, 건강 상태를 코치에게 알려 주세요.">첫 훈련 전에 운동 이력, 목표, 건강 상태를 코치에게 알려 주세요.</p><a class="btn btn-gold" href="intake.html" data-en="Complete Coaching Intake" data-ko="코칭 사전 설문 작성">코칭 사전 설문 작성</a></div>
+<button class="btn btn-outline mt-24" type="button" data-navigate="home">
+        <span data-en="Back Home" data-ko="홈으로 돌아가기">홈으로 돌아가기</span>
         <span class="btn-arrow">→</span>
       </button>
     </div>

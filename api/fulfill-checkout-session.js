@@ -1,5 +1,6 @@
 const { deliverSessionPdfs } = require('./_lib/pdf-delivery');
 const { getStripe } = require('./_lib/stripe');
+const { getProduct } = require('./_lib/products');
 
 const stripe = getStripe();
 
@@ -28,7 +29,9 @@ module.exports = async function handler(req, res) {
     }
 
     const result = await deliverSessionPdfs(session);
-    return res.status(200).json(result);
+    const hasCoaching = String(session.metadata?.product_keys || '').split(',')
+      .some(key => getProduct(key.trim())?.type === 'coaching');
+    return res.status(200).json({ ...result, paid: true, has_coaching: hasCoaching });
   } catch (error) {
     console.error('Checkout fulfillment failed:', error);
     return res.status(500).json({ error: error.message || 'Unable to fulfill checkout session.' });
