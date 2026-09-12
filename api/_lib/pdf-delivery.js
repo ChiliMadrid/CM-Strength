@@ -15,7 +15,7 @@ function getPurchasedPdfProducts(session) {
     .filter(product => product && product.type === 'pdf');
 }
 
-async function sendPdfEmail({ to, products, sessionId }) {
+async function sendPdfEmail({ to, products, sessionId, language = 'en' }) {
   if (!process.env.RESEND_API_KEY || !process.env.RESEND_FROM_EMAIL) {
     throw new Error('PDF email delivery is not configured.');
   }
@@ -48,8 +48,12 @@ async function sendPdfEmail({ to, products, sessionId }) {
       to,
       bcc: [OWNER_EMAIL],
       reply_to: REPLY_TO_EMAIL,
-      subject: 'Your CM Strength PDF program',
-      html: `
+      subject: language === 'ko' ? 'CM Strength 영문 PDF 프로그램을 보내드립니다' : 'Your CM Strength PDF program',
+      html: language === 'ko' ? `
+        <p>CM Strength 프로그램을 구매해 주셔서 감사합니다.</p>
+        <p>구매하신 영문 PDF 프로그램을 이 이메일에 첨부했습니다. 웹사이트의 한국어 설정과 관계없이 현재 판매 중인 PDF 본문은 영어입니다.</p>
+        <p>파일을 열 수 없다면 이 이메일에 답장해 주세요. 결제 참조 번호: ${sessionId}</p>
+      ` : `
         <p>Thank you for your CM Strength purchase.</p>
         <p>Your PDF program${attachments.length > 1 ? 's are' : ' is'} attached to this email.</p>
         <p>If you have any trouble opening the file, reply to this email with your checkout reference: ${sessionId}.</p>
@@ -79,7 +83,8 @@ async function deliverSessionPdfs(session) {
   await sendPdfEmail({
     to: customerEmail,
     products: pdfProducts,
-    sessionId: session.id
+    sessionId: session.id,
+    language: session.metadata?.language === 'ko' ? 'ko' : 'en'
   });
 
   return { delivered: true, count: pdfProducts.length, email: customerEmail };

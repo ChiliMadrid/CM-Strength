@@ -29,16 +29,23 @@ function buildCheckoutItems(body) {
       throw new Error('One or more cart items cannot be checked out yet.');
     }
 
-    const quantity = Math.max(1, Math.min(Number(item.quantity || 1), 10));
+    const quantity = Number(item.quantity || 1);
     const months = product.type === 'coaching'
-      ? Math.max(1, Math.min(Number(item.months || 1), 14))
+      ? Number(item.months || 1)
       : 1;
+    if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10
+      || !Number.isInteger(months) || months < 1 || months > 14) {
+      throw new Error('Invalid quantity or coaching duration.');
+    }
+    if (item.productKey.startsWith('coaching-in-person-') && months !== 1) {
+      throw new Error('Session packages cannot use four-week block discounts.');
+    }
     const discount = months >= 12 ? 0.10 : months >= 6 ? 0.05 : 0;
     const amount = months > 1
       ? Math.round(product.amount * months * (1 - discount))
       : product.amount;
     const name = months > 1
-      ? `${product.name} - Paid in Full (${months} months)`
+      ? `${product.name} - Paid in Full (${months} four-week blocks)`
       : product.name;
 
     return { productKey: item.productKey, product, quantity, amount, name };
@@ -89,6 +96,7 @@ module.exports = async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       customer_email: body.email || undefined,
+      locale: body.language === 'en' ? 'en' : 'ko',
       allow_promotion_codes: true,
       line_items: checkoutItems.map(item => ({
         quantity: item.quantity,
@@ -103,6 +111,7 @@ module.exports = async function handler(req, res) {
       metadata: {
         product_keys: productKeys.join(','),
         has_pdfs: checkoutItems.some(item => item.product.type === 'pdf') ? 'true' : 'false',
+        language: body.language === 'en' ? 'en' : 'ko',
         source: Array.isArray(body.items) && body.items.length ? 'cm-strength-cart' : 'cm-strength-payment-page'
       },
       success_url: `${baseUrl}/payment-success.html?session_id={CHECKOUT_SESSION_ID}`,

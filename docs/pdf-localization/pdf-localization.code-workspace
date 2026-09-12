@@ -1,0 +1,11 @@
+{
+  "folders": [
+    { "name": "PDF localization assessment and tracker", "path": "." },
+    { "name": "PDF localization tools", "path": "../../scripts/pdf-localization" }
+  ],
+  "settings": {
+    "files.encoding": "utf8",
+    "editor.wordWrap": "on",
+    "files.autoSave": "off"
+  }
+}

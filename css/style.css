@@ -1543,6 +1543,8 @@ select:focus-visible,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring, .cursor-trail { display: none; }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -1550,17 +1552,24 @@ select:focus-visible,
     transition-duration: 0.01ms !important;
   }
   .ticker-track {
-    animation: marquee 20s linear infinite !important;
+    animation: none !important;
   }
   .marquee-track {
-    animation: marquee 28s linear infinite !important;
+    animation: none !important;
   }
   .hero-photo-track {
-    animation: marquee 40s linear infinite !important;
+    animation: none !important;
   }
   .floating-social.is-closing {
-    animation: socialDescend 0.48s ease-in forwards !important;
+    animation: none !important;
   }
 }
 
 
+/* Native enquiry links share the package button layout. */
+a.btn-apply { display: block; text-align: center; text-decoration: none; }
+[hidden] { display: none !important; }
+#coachingOnboarding { margin: 28px 0; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; }
+}

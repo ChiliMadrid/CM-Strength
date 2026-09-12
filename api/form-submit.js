@@ -66,7 +66,7 @@ module.exports = async function handler(req, res) {
 
   try {
     const body = parseBody(req);
-    if (body.company) return res.status(200).json({ ok: true });
+    if (body.company || body.fields?.company) return res.status(200).json({ ok: true });
 
     const formType = String(body.formType || body.type || '').trim();
     if (!['contact', 'intake'].includes(formType)) return res.status(400).json({ error: 'Unknown form type.' });

@@ -1,0 +1,4224 @@
+{
+  "assessment_date": "2026-09-11",
+  "source_library": "api/_private/EnglishPDF",
+  "total_pages": 509,
+  "total_extracted_words": 128340,
+  "assets": [
+    {
+      "file": "api/_private/EnglishPDF/Dynasty.pdf",
+      "sha256": "382273d01e11eee2658577480a11b9f281aaf939d7f5ead5d029c935818470d5",
+      "bytes": 4027562,
+      "page_count": 93,
+      "metadata": {
+        "/Title": "CM_Strength Dynasty",
+        "/Producer": "Skia/PDF m149 Google Docs Renderer"
+      },
+      "fields": [],
+      "pages": [
+        {
+          "page": 1,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 4,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 2,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 31,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 3,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3202,
+          "images": 3,
+          "links": 0
+        },
+        {
+          "page": 4,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3569,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 5,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 270,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 6,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3501,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 7,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1101,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 8,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2820,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 9,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 743,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 10,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3519,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 11,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1874,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 12,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2084,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 13,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1981,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 14,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 249,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 15,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2189,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 16,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2555,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 17,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3124,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 18,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2479,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 19,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1729,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 20,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1572,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 21,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 248,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 22,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1837,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 23,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2608,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 24,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2052,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 25,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2060,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 26,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1604,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 27,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1527,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 28,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 250,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 29,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2585,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 30,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2929,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 31,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 634,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 32,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2661,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 33,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1426,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 34,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1638,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 35,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1074,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 36,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 248,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 37,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2251,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 38,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2141,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 39,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2190,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 40,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1633,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 41,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1646,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 42,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1631,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 43,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 254,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 44,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2358,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 45,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1932,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 46,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1876,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 47,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1569,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 48,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1749,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 49,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1349,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 50,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 250,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 51,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2219,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 52,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1948,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 53,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1508,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 54,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1640,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 55,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1624,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 56,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1283,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 57,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 281,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 58,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1820,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 59,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2146,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 60,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1967,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 61,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1360,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 62,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1761,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 63,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1219,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 64,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 250,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 65,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2255,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 66,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2292,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 67,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1938,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 68,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1437,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 69,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1409,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 70,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1691,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 71,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 250,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 72,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1484,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 73,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2324,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 74,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1473,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 75,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1474,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 76,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1307,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 77,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1566,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 78,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 250,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 79,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1664,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 80,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2261,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 81,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1478,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 82,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1646,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 83,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1347,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 84,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1252,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 85,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 250,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 86,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2205,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 87,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 339,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 88,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2028,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 89,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1481,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 90,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1497,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 91,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1503,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 92,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1372,
+          "images": 2,
+          "links": 0
+        },
+        {
+          "page": 93,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 591,
+          "images": 1,
+          "links": 0
+        }
+      ],
+      "slug": "dynasty",
+      "extracted_word_count": 24424,
+      "replacement_character_count": 0,
+      "replacement_character_pages": [],
+      "assessment_status": "assessed",
+      "korean_status": "not_started",
+      "editable_source_status": "not_located",
+      "target_filename": "dynasty.ko-KR.pdf"
+    },
+    {
+      "file": "api/_private/EnglishPDF/Hell Joseon.pdf",
+      "sha256": "f28bb9c1255bb184a73beba40d720f5daa721aad039ac206f4332042dd0c8a7a",
+      "bytes": 5057090,
+      "page_count": 33,
+      "metadata": {
+        "/Title": "CM Strength_Hell_Joseon.docx",
+        "/Producer": "Skia/PDF m149 Google Docs Renderer"
+      },
+      "fields": [],
+      "pages": [
+        {
+          "page": 1,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 42,
+          "images": 3,
+          "links": 0
+        },
+        {
+          "page": 2,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1757,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 3,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3694,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 4,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3430,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 5,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2017,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 6,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3347,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 7,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1648,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 8,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1844,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 9,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1238,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 10,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 303,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 11,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3356,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 12,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1955,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 13,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1850,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 14,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3319,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 15,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2701,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 16,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1550,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 17,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2293,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 18,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1959,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 19,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2860,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 20,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2369,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 21,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2506,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 22,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1503,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 23,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3054,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 24,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1404,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 25,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 288,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 26,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3408,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 27,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2913,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 28,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1968,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 29,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1941,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 30,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2166,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 31,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2470,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 32,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2319,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 33,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 625,
+          "images": 1,
+          "links": 0
+        }
+      ],
+      "slug": "hell-joseon",
+      "extracted_word_count": 11431,
+      "replacement_character_count": 0,
+      "replacement_character_pages": [],
+      "assessment_status": "assessed",
+      "korean_status": "not_started",
+      "editable_source_status": "not_located",
+      "target_filename": "hell-joseon.ko-KR.pdf"
+    },
+    {
+      "file": "api/_private/EnglishPDF/Lotus.pdf",
+      "sha256": "7d4f1535dc35e8d964b8b1358c3e4daefe27da298ba8085f6805fc00324cd784",
+      "bytes": 7930781,
+      "page_count": 180,
+      "metadata": {
+        "/CreationDate": "D:20260416125424Z'",
+        "/Creator": "Writer",
+        "/ModDate": "D:20260416093355-05'00",
+        "/Producer": "LibreOffice 25.2.3.2 (X86_64) / LibreOffice Community"
+      },
+      "fields": [],
+      "pages": [
+        {
+          "page": 1,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 0,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 2,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1220,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 3,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 780,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 4,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 260,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 5,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 3095,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 6,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2029,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 7,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2021,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 8,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1234,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 9,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1681,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 10,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 267,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 11,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2327,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 12,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 259,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 13,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1506,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 14,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1443,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 15,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2005,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 16,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 148,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 17,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 252,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 18,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2806,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 19,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1668,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 20,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2177,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 21,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1816,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 22,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1233,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 23,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 217,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 24,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2356,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 25,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 347,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 26,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1368,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 27,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 734,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 28,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2048,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 29,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 168,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 30,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 31,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2474,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 32,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1652,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 33,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1644,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 34,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 714,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 35,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 36,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 245,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 37,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1204,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 38,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 97,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 39,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1316,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 40,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 685,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 41,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1821,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 42,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 43,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1829,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 44,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1591,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 45,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1821,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 46,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 971,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 47,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 948,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 48,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 203,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 49,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1755,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 50,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 145,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 51,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1466,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 52,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 650,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 53,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1862,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 54,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 168,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 55,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 56,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1627,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 57,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 397,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 58,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1713,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 59,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 897,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 60,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1593,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 61,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 222,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 62,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1625,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 63,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 127,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 64,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2612,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 65,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 434,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 66,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1771,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 67,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 422,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 68,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 69,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1442,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 70,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 373,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 71,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1437,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 72,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1184,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 73,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1430,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 74,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 222,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 75,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1838,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 76,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 160,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 77,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2145,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 78,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 166,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 79,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1787,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 80,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 364,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 81,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 82,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1478,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 83,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 244,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 84,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1416,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 85,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 865,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 86,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1099,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 87,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 47,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 88,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1843,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 89,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 369,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 90,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1652,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 91,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 141,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 92,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1484,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 93,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 235,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 94,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 95,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1391,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 96,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 303,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 97,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1491,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 98,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 836,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 99,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1055,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 100,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 282,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 101,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1869,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 102,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 345,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 103,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1510,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 104,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1444,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 105,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 282,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 106,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 107,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1330,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 108,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 303,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 109,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1524,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 110,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 702,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 111,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1142,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 112,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 282,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 113,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1324,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 114,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 124,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 115,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1502,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 116,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 232,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 117,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1244,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 118,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 265,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 119,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 254,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 120,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1426,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 121,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 295,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 122,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1289,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 123,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 743,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 124,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1178,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 125,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1088,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 126,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1495,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 127,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 232,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 128,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1525,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 129,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 208,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 130,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 279,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 131,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1583,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 132,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 879,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 133,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1423,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 134,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 304,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 135,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1218,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 136,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 578,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 137,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1547,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 138,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 526,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 139,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 964,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 140,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1456,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 141,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 319,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 142,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 271,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 143,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1644,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 144,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 977,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 145,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1219,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 146,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 294,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 147,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1313,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 148,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 571,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 149,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1416,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 150,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 526,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 151,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1485,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 152,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 299,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 153,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1534,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 154,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 338,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 155,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 267,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 156,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1878,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 157,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1192,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 158,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1312,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 159,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 294,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 160,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1313,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 161,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 758,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 162,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1554,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 163,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 597,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 164,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1539,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 165,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 342,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 166,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1505,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 167,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 516,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 168,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 279,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 169,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1972,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 170,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 964,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 171,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1315,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 172,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 436,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 173,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1423,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 174,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 617,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 175,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1633,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 176,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 597,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 177,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1609,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 178,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 215,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 179,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1594,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 180,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 541,
+          "images": 0,
+          "links": 0
+        }
+      ],
+      "slug": "lotus",
+      "extracted_word_count": 36774,
+      "replacement_character_count": 0,
+      "replacement_character_pages": [],
+      "assessment_status": "assessed",
+      "korean_status": "not_started",
+      "editable_source_status": "not_located",
+      "target_filename": "lotus.ko-KR.pdf"
+    },
+    {
+      "file": "api/_private/EnglishPDF/The First Flame.pdf",
+      "sha256": "097bbdbbb3c567a7259664abb433d5f952bf5bc20ab1a9ab159cd1e5690d0f60",
+      "bytes": 2020879,
+      "page_count": 43,
+      "metadata": {
+        "/CreationDate": "D:20260416211135"
+      },
+      "fields": [],
+      "pages": [
+        {
+          "page": 1,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 0,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 2,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 451,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 3,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1224,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 4,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1798,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 5,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1672,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 6,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1719,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 7,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1815,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 8,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1816,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 9,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 2139,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 10,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1983,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 11,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1406,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 12,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1333,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 13,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 2132,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 14,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1097,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 15,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1126,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 16,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1796,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 17,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1314,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 18,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1696,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 19,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1202,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 20,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1284,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 21,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1457,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 22,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1579,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 23,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1391,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 24,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1567,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 25,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1697,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 26,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 992,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 27,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 557,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 28,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 181,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 29,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 3205,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 30,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1607,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 31,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 45,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 32,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 3153,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 33,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 14,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 34,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 3392,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 35,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 1114,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 36,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 54,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 37,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 182,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 38,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 3012,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 39,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 46,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 40,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 2567,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 41,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 46,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 42,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 2480,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 43,
+          "width_pt": 768.0,
+          "height_pt": 1024.0,
+          "characters": 938,
+          "images": 0,
+          "links": 0
+        }
+      ],
+      "slug": "the-first-flame",
+      "extracted_word_count": 11666,
+      "replacement_character_count": 0,
+      "replacement_character_pages": [],
+      "assessment_status": "assessed",
+      "korean_status": "not_started",
+      "editable_source_status": "not_located",
+      "target_filename": "the-first-flame.ko-KR.pdf"
+    },
+    {
+      "file": "api/_private/EnglishPDF/Total War.pdf",
+      "sha256": "821ad4edc5fa34917046611837704caaef3852b4b0f130d29b1ef3024502b5bb",
+      "bytes": 8743856,
+      "page_count": 160,
+      "metadata": {
+        "/Title": "CM Strength Total War",
+        "/Author": "CM Strength",
+        "/Subject": "Powerlifting Program"
+      },
+      "fields": [],
+      "pages": [
+        {
+          "page": 1,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 0,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 2,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1650,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 3,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1694,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 4,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1266,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 5,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1802,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 6,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1658,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 7,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1289,
+          "images": 1,
+          "links": 0
+        },
+        {
+          "page": 8,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1781,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 9,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2008,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 10,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1545,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 11,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1148,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 12,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1104,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 13,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1241,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 14,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 937,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 15,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 483,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 16,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 118,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 17,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 902,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 18,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1917,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 19,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1809,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 20,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 569,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 21,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1232,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 22,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2118,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 23,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1056,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 24,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1617,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 25,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2151,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 26,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1694,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 27,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2228,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 28,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1366,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 29,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1978,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 30,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2365,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 31,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 734,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 32,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 131,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 33,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 200,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 34,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 903,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 35,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1378,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 36,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2160,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 37,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1656,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 38,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2272,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 39,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 410,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 40,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1943,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 41,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1327,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 42,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 801,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 43,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2134,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 44,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2382,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 45,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2042,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 46,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1891,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 47,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 872,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 48,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 251,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 49,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 903,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 50,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1442,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 51,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1837,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 52,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1518,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 53,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2063,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 54,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 402,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 55,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1835,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 56,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1202,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 57,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 850,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 58,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2023,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 59,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2297,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 60,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1777,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 61,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2277,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 62,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 473,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 63,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 131,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 64,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 118,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 65,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 934,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 66,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1684,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 67,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1964,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 68,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1749,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 69,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1942,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 70,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 485,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 71,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1760,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 72,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1489,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 73,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 811,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 74,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2638,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 75,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1671,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 76,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1672,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 77,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1640,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 78,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 749,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 79,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 131,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 80,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 200,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 81,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 937,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 82,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1608,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 83,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1993,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 84,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1651,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 85,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2002,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 86,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 507,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 87,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1796,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 88,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1219,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 89,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1536,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 90,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1787,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 91,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1037,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 92,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1765,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 93,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2009,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 94,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 382,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 95,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 132,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 96,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 201,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 97,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 940,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 98,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1627,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 99,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2032,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 100,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1654,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 101,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1995,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 102,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 531,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 103,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1876,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 104,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1212,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 105,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1549,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 106,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1788,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 107,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1038,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 108,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1781,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 109,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 2071,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 110,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 414,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 111,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 133,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 112,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 120,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 113,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 938,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 114,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1357,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 115,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1580,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 116,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1537,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 117,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1806,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 118,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 491,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 119,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1619,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 120,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1057,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 121,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1377,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 122,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1744,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 123,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 666,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 124,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1143,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 125,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1768,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 126,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 295,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 127,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 133,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 128,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 120,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 129,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 940,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 130,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1335,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 131,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1622,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 132,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1457,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 133,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1540,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 134,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 476,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 135,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1490,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 136,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1205,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 137,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1253,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 138,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1824,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 139,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 643,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 140,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1102,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 141,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1832,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 142,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 347,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 143,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 133,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 144,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 120,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 145,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 866,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 146,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1360,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 147,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1551,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 148,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1594,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 149,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1401,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 150,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 407,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 151,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1525,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 152,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1293,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 153,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1432,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 154,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1756,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 155,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 643,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 156,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1170,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 157,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 1551,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 158,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 688,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 159,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 133,
+          "images": 0,
+          "links": 0
+        },
+        {
+          "page": 160,
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "characters": 593,
+          "images": 1,
+          "links": 1
+        }
+      ],
+      "slug": "total-war",
+      "extracted_word_count": 44045,
+      "replacement_character_count": 2454,
+      "replacement_character_pages": [
+        2,
+        4,
+        12,
+        13,
+        22,
+        23,
+        30,
+        38,
+        53,
+        70,
+        78,
+        115,
+        117,
+        125,
+        131,
+        135,
+        147,
+        151
+      ],
+      "assessment_status": "assessed",
+      "korean_status": "not_started",
+      "editable_source_status": "not_located",
+      "target_filename": "total-war.ko-KR.pdf",
+      "source_provenance": {
+        "checked_date": "2026-09-11",
+        "repository": "ChiliMadrid/ebook",
+        "folder": "TotalWar",
+        "current_pdf_path": "TotalWar/CM Strength Total War.pdf",
+        "current_pdf_git_blob_sha": "174e8771c7d67f3c15b347cb290845c8e41af695",
+        "current_pdf_comparison": "confirmed_identical_to_website_asset_by_git_blob_sha_and_size",
+        "current_pdf_commit": "c0a44e40a604cf3a0f6ee5ae2b42a1a64b58019c",
+        "current_pdf_commit_date": "2026-05-22T01:57:23Z",
+        "editable_original_status": "not_found_in_specific_folder_or_two_observed_commits",
+        "cover_asset_path": "TotalWar/total_war_photo_cover_option_1.png",
+        "earlier_pdf_candidate": {
+          "commit": "ff5525599d4118e093362a5025333a6e7a8828f7",
+          "commit_date": "2026-05-22T01:57:23Z",
+          "git_blob_sha": "c2d7058daf5fb17ebb1818549c98c003deec7c22",
+          "status": "candidate_recovery_version_content_not_inspected"
+        }
+      }
+    }
+  ]
+}
